@@ -5,10 +5,6 @@ import PackageDescription
 
 let package = Package(
     name: "walletcore",
-    platforms: [
-        .iOS(.v13),
-        .macOS(.v14_5),
-    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
