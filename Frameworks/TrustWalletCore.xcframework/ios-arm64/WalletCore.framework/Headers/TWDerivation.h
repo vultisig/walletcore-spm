@@ -21,6 +21,7 @@ enum TWDerivation {
     TWDerivationBitcoinTestnet = 4,
     TWDerivationLitecoinLegacy = 5,
     TWDerivationSolanaSolana = 6,
+    TWDerivationStratisSegwit = 7,
 };
 
 TW_EXTERN_C_END
