@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
 // swift-module-flags: -target arm64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name WalletCore
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
@@ -813,6 +813,12 @@ public struct Base64 {
   public static func decodeUrl(string: Swift.String) -> Foundation.Data?
   public static func encode(data: Foundation.Data) -> Swift.String
   public static func encodeUrl(data: Foundation.Data) -> Swift.String
+}
+public struct Bech32 {
+  public static func encode(hrp: Swift.String, data: Foundation.Data) -> Swift.String
+  public static func decode(string: Swift.String) -> Foundation.Data?
+  public static func encodeM(hrp: Swift.String, data: Foundation.Data) -> Swift.String
+  public static func decodeM(string: Swift.String) -> Foundation.Data?
 }
 public typealias BinanceTransaction = WalletCore.TW_Binance_Proto_Transaction
 public typealias BinanceSignature = WalletCore.TW_Binance_Proto_Signature
@@ -1997,6 +2003,8 @@ public typealias BitcoinV2OutPoint = WalletCore.TW_BitcoinV2_Proto_OutPoint
 public typealias BitcoinV2Input = WalletCore.TW_BitcoinV2_Proto_Input
 public typealias BitcoinV2Output = WalletCore.TW_BitcoinV2_Proto_Output
 public typealias BitcoinV2ChainInfo = WalletCore.TW_BitcoinV2_Proto_ChainInfo
+public typealias BitcoinV2TransactionBuilder = WalletCore.TW_BitcoinV2_Proto_TransactionBuilder
+public typealias BitcoinV2Psbt = WalletCore.TW_BitcoinV2_Proto_Psbt
 public typealias BitcoinV2SigningInput = WalletCore.TW_BitcoinV2_Proto_SigningInput
 public typealias BitcoinV2Transaction = WalletCore.TW_BitcoinV2_Proto_Transaction
 public typealias BitcoinV2TransactionPlan = WalletCore.TW_BitcoinV2_Proto_TransactionPlan
@@ -2269,42 +2277,17 @@ public struct TW_BitcoinV2_Proto_Output {
 public struct TW_BitcoinV2_Proto_ChainInfo {
   public var p2PkhPrefix: Swift.UInt32
   public var p2ShPrefix: Swift.UInt32
+  public var hrp: Swift.String
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-public struct TW_BitcoinV2_Proto_SigningInput {
-  public var version: WalletCore.TW_BitcoinV2_Proto_TransactionVersion {
-    get
-    set
-  }
-  public var privateKeys: [Foundation.Data] {
-    get
-    set
-  }
-  public var publicKeys: [Foundation.Data] {
-    get
-    set
-  }
-  public var lockTime: Swift.UInt32 {
-    get
-    set
-  }
-  public var inputs: [WalletCore.TW_BitcoinV2_Proto_Input] {
-    get
-    set
-  }
-  public var outputs: [WalletCore.TW_BitcoinV2_Proto_Output] {
-    get
-    set
-  }
-  public var inputSelector: WalletCore.TW_BitcoinV2_Proto_InputSelector {
-    get
-    set
-  }
-  public var feePerVb: Swift.Int64 {
-    get
-    set
-  }
+public struct TW_BitcoinV2_Proto_TransactionBuilder {
+  public var version: WalletCore.TW_BitcoinV2_Proto_TransactionVersion
+  public var lockTime: Swift.UInt32
+  public var inputs: [WalletCore.TW_BitcoinV2_Proto_Input]
+  public var outputs: [WalletCore.TW_BitcoinV2_Proto_Output]
+  public var inputSelector: WalletCore.TW_BitcoinV2_Proto_InputSelector
+  public var feePerVb: Swift.Int64
   public var changeOutput: WalletCore.TW_BitcoinV2_Proto_Output {
     get
     set
@@ -2321,6 +2304,32 @@ public struct TW_BitcoinV2_Proto_SigningInput {
     get
   }
   public mutating func clearMaxAmountOutput()
+  public var dustPolicy: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_DustPolicy?
+  public var fixedDustThreshold: Swift.Int64 {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum OneOf_DustPolicy : Swift.Equatable {
+    case fixedDustThreshold(Swift.Int64)
+    public static func == (a: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_DustPolicy, b: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_DustPolicy) -> Swift.Bool
+  }
+  public init()
+}
+public struct TW_BitcoinV2_Proto_Psbt {
+  public var psbt: Foundation.Data
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_BitcoinV2_Proto_SigningInput {
+  public var privateKeys: [Foundation.Data] {
+    get
+    set
+  }
+  public var publicKeys: [Foundation.Data] {
+    get
+    set
+  }
   public var chainInfo: WalletCore.TW_BitcoinV2_Proto_ChainInfo {
     get
     set
@@ -2329,22 +2338,27 @@ public struct TW_BitcoinV2_Proto_SigningInput {
     get
   }
   public mutating func clearChainInfo()
-  public var dustPolicy: WalletCore.TW_BitcoinV2_Proto_SigningInput.OneOf_DustPolicy? {
-    get
-    set
-  }
-  public var fixedDustThreshold: Swift.Int64 {
-    get
-    set
-  }
   public var dangerousUseFixedSchnorrRng: Swift.Bool {
     get
     set
   }
+  public var transaction: WalletCore.TW_BitcoinV2_Proto_SigningInput.OneOf_Transaction? {
+    get
+    set
+  }
+  public var builder: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder {
+    get
+    set
+  }
+  public var psbt: WalletCore.TW_BitcoinV2_Proto_Psbt {
+    get
+    set
+  }
   public var unknownFields: SwiftProtobuf.UnknownStorage
-  public enum OneOf_DustPolicy : Swift.Equatable {
-    case fixedDustThreshold(Swift.Int64)
-    public static func == (a: WalletCore.TW_BitcoinV2_Proto_SigningInput.OneOf_DustPolicy, b: WalletCore.TW_BitcoinV2_Proto_SigningInput.OneOf_DustPolicy) -> Swift.Bool
+  public enum OneOf_Transaction : Swift.Equatable {
+    case builder(WalletCore.TW_BitcoinV2_Proto_TransactionBuilder)
+    case psbt(WalletCore.TW_BitcoinV2_Proto_Psbt)
+    public static func == (a: WalletCore.TW_BitcoinV2_Proto_SigningInput.OneOf_Transaction, b: WalletCore.TW_BitcoinV2_Proto_SigningInput.OneOf_Transaction) -> Swift.Bool
   }
   public init()
 }
@@ -2449,6 +2463,14 @@ public struct TW_BitcoinV2_Proto_SigningOutput {
   public var vsize: Swift.UInt64
   public var weight: Swift.UInt64
   public var fee: Swift.Int64
+  public var psbt: WalletCore.TW_BitcoinV2_Proto_Psbt {
+    get
+    set
+  }
+  public var hasPsbt: Swift.Bool {
+    get
+  }
+  public mutating func clearPsbt()
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
@@ -2584,6 +2606,26 @@ extension WalletCore.TW_BitcoinV2_Proto_ChainInfo : SwiftProtobuf.Message, Swift
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public static func == (lhs: WalletCore.TW_BitcoinV2_Proto_ChainInfo, rhs: WalletCore.TW_BitcoinV2_Proto_ChainInfo) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_BitcoinV2_Proto_TransactionBuilder : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder, rhs: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_BitcoinV2_Proto_Psbt : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_BitcoinV2_Proto_Psbt, rhs: WalletCore.TW_BitcoinV2_Proto_Psbt) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -2736,6 +2778,8 @@ public enum Blockchain : Swift.UInt32, Swift.CaseIterable {
   case internetComputer
   case nativeEvmos
   case nativeInjective
+  case bitcoinCash
+  case pactus
   public init?(rawValue: Swift.UInt32)
   public typealias AllCases = [WalletCore.Blockchain]
   public typealias RawValue = Swift.UInt32
@@ -3279,6 +3323,7 @@ public enum CoinType : Swift.UInt32, Swift.CaseIterable {
   case blast
   case bounceBit
   case zkLinkNova
+  case pactus
   public init?(rawValue: Swift.UInt32)
   public typealias AllCases = [WalletCore.CoinType]
   public typealias RawValue = Swift.UInt32
@@ -4419,6 +4464,7 @@ public enum Derivation : Swift.UInt32, Swift.CaseIterable {
   case litecoinLegacy
   case solanaSolana
   case stratisSegwit
+  case bitcoinTaproot
   public init?(rawValue: Swift.UInt32)
   public typealias AllCases = [WalletCore.Derivation]
   public typealias RawValue = Swift.UInt32
@@ -6770,6 +6816,7 @@ public enum HRP : Swift.UInt32, Swift.CaseIterable, Swift.CustomStringConvertibl
   case harmony
   case cardano
   case qtum
+  case pactus
   case stratis
   case nativeInjective
   case osmosis
@@ -8415,6 +8462,11 @@ extension WalletCore.TW_LiquidStaking_Proto_Output : SwiftProtobuf.Message, Swif
 public struct LiquidStaking {
   public static func buildRequest(input: Foundation.Data) -> Foundation.Data
 }
+@_hasMissingDesignatedInitializers final public class MessageSigner {
+  public static func sign(coin: WalletCore.CoinType, input: Foundation.Data) -> Foundation.Data?
+  public static func verify(coin: WalletCore.CoinType, input: Foundation.Data) -> Swift.Bool
+  @objc deinit
+}
 extension WalletCore.Mnemonic {
   public typealias ValidationResult = (word: Swift.String, index: Swift.Int)
   public static func validate(mnemonic: [Swift.String]) -> [WalletCore.Mnemonic.ValidationResult]
@@ -9884,12 +9936,30 @@ extension WalletCore.TW_Nervos_Proto_SigningOutput : SwiftProtobuf.Message, Swif
 }
 public typealias NimiqSigningInput = WalletCore.TW_Nimiq_Proto_SigningInput
 public typealias NimiqSigningOutput = WalletCore.TW_Nimiq_Proto_SigningOutput
+public typealias NimiqNetworkId = WalletCore.TW_Nimiq_Proto_NetworkId
+public enum TW_Nimiq_Proto_NetworkId : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case useDefault
+  case mainnet
+  case mainnetAlbatross
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Nimiq_Proto_NetworkId : Swift.CaseIterable {
+  public static var allCases: [WalletCore.TW_Nimiq_Proto_NetworkId]
+  public typealias AllCases = [WalletCore.TW_Nimiq_Proto_NetworkId]
+}
 public struct TW_Nimiq_Proto_SigningInput {
   public var privateKey: Foundation.Data
   public var destination: Swift.String
   public var value: Swift.UInt64
   public var fee: Swift.UInt64
   public var validityStartHeight: Swift.UInt32
+  public var networkID: WalletCore.TW_Nimiq_Proto_NetworkId
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
@@ -9897,6 +9967,9 @@ public struct TW_Nimiq_Proto_SigningOutput {
   public var encoded: Foundation.Data
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
+}
+extension WalletCore.TW_Nimiq_Proto_NetworkId : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
 extension WalletCore.TW_Nimiq_Proto_SigningInput : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
@@ -10082,6 +10155,119 @@ extension WalletCore.TW_Ontology_Proto_SigningOutput : SwiftProtobuf.Message, Sw
 public struct PBKDF2 {
   public static func hmacSha256(password: Foundation.Data, salt: Foundation.Data, iterations: Swift.UInt32, dkLen: Swift.UInt32) -> Foundation.Data?
   public static func hmacSha512(password: Foundation.Data, salt: Foundation.Data, iterations: Swift.UInt32, dkLen: Swift.UInt32) -> Foundation.Data?
+}
+public typealias PactusTransactionMessage = WalletCore.TW_Pactus_Proto_TransactionMessage
+public typealias PactusTransferPayload = WalletCore.TW_Pactus_Proto_TransferPayload
+public typealias PactusBondPayload = WalletCore.TW_Pactus_Proto_BondPayload
+public typealias PactusSigningInput = WalletCore.TW_Pactus_Proto_SigningInput
+public typealias PactusSigningOutput = WalletCore.TW_Pactus_Proto_SigningOutput
+public struct TW_Pactus_Proto_TransactionMessage {
+  public var lockTime: Swift.UInt32
+  public var fee: Swift.Int64
+  public var memo: Swift.String
+  public var payload: WalletCore.TW_Pactus_Proto_TransactionMessage.OneOf_Payload?
+  public var transfer: WalletCore.TW_Pactus_Proto_TransferPayload {
+    get
+    set
+  }
+  public var bond: WalletCore.TW_Pactus_Proto_BondPayload {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum OneOf_Payload : Swift.Equatable {
+    case transfer(WalletCore.TW_Pactus_Proto_TransferPayload)
+    case bond(WalletCore.TW_Pactus_Proto_BondPayload)
+    public static func == (a: WalletCore.TW_Pactus_Proto_TransactionMessage.OneOf_Payload, b: WalletCore.TW_Pactus_Proto_TransactionMessage.OneOf_Payload) -> Swift.Bool
+  }
+  public init()
+}
+public struct TW_Pactus_Proto_TransferPayload {
+  public var sender: Swift.String
+  public var receiver: Swift.String
+  public var amount: Swift.Int64
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_Pactus_Proto_BondPayload {
+  public var sender: Swift.String
+  public var receiver: Swift.String
+  public var stake: Swift.Int64
+  public var publicKey: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_Pactus_Proto_SigningInput {
+  public var privateKey: Foundation.Data
+  public var transaction: WalletCore.TW_Pactus_Proto_TransactionMessage {
+    get
+    set
+  }
+  public var hasTransaction: Swift.Bool {
+    get
+  }
+  public mutating func clearTransaction()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_Pactus_Proto_SigningOutput {
+  public var transactionID: Foundation.Data
+  public var signedTransactionData: Foundation.Data
+  public var signature: Foundation.Data
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+extension WalletCore.TW_Pactus_Proto_TransactionMessage : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Pactus_Proto_TransactionMessage, rhs: WalletCore.TW_Pactus_Proto_TransactionMessage) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Pactus_Proto_TransferPayload : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Pactus_Proto_TransferPayload, rhs: WalletCore.TW_Pactus_Proto_TransferPayload) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Pactus_Proto_BondPayload : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Pactus_Proto_BondPayload, rhs: WalletCore.TW_Pactus_Proto_BondPayload) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Pactus_Proto_SigningInput : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Pactus_Proto_SigningInput, rhs: WalletCore.TW_Pactus_Proto_SigningInput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Pactus_Proto_SigningOutput : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Pactus_Proto_SigningOutput, rhs: WalletCore.TW_Pactus_Proto_SigningOutput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public typealias PolkadotEra = WalletCore.TW_Polkadot_Proto_Era
 public typealias PolkadotCustomCallIndices = WalletCore.TW_Polkadot_Proto_CustomCallIndices
@@ -10299,6 +10485,22 @@ public struct TW_Polkadot_Proto_Staking {
       get
     }
     public mutating func clearCallIndices()
+    public var bondCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasBondCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearBondCallIndices()
+    public var nominateCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasNominateCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearNominateCallIndices()
     public var unknownFields: SwiftProtobuf.UnknownStorage
     public init()
   }
@@ -10377,6 +10579,22 @@ public struct TW_Polkadot_Proto_Staking {
       get
     }
     public mutating func clearCallIndices()
+    public var chillCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasChillCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearChillCallIndices()
+    public var unbondCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasUnbondCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearUnbondCallIndices()
     public var unknownFields: SwiftProtobuf.UnknownStorage
     public init()
   }
@@ -10923,6 +11141,7 @@ public enum Purpose : Swift.UInt32, Swift.CaseIterable {
   case bip44
   case bip49
   case bip84
+  case bip86
   case bip1852
   public init?(rawValue: Swift.UInt32)
   public typealias AllCases = [WalletCore.Purpose]
@@ -11283,6 +11502,9 @@ public typealias SolanaPriorityFeeLimit = WalletCore.TW_Solana_Proto_PriorityFee
 public typealias SolanaSigningInput = WalletCore.TW_Solana_Proto_SigningInput
 public typealias SolanaSigningOutput = WalletCore.TW_Solana_Proto_SigningOutput
 public typealias SolanaPreSigningOutput = WalletCore.TW_Solana_Proto_PreSigningOutput
+public typealias SolanaMessageSigningInput = WalletCore.TW_Solana_Proto_MessageSigningInput
+public typealias SolanaMessageSigningOutput = WalletCore.TW_Solana_Proto_MessageSigningOutput
+public typealias SolanaMessageVerifyingInput = WalletCore.TW_Solana_Proto_MessageVerifyingInput
 public typealias SolanaTokenProgramId = WalletCore.TW_Solana_Proto_TokenProgramId
 public typealias SolanaEncoding = WalletCore.TW_Solana_Proto_Encoding
 public enum TW_Solana_Proto_TokenProgramId : SwiftProtobuf.Enum {
@@ -11654,6 +11876,26 @@ public struct TW_Solana_Proto_PreSigningOutput {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
+public struct TW_Solana_Proto_MessageSigningInput {
+  public var privateKey: Foundation.Data
+  public var message: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_Solana_Proto_MessageSigningOutput {
+  public var signature: Swift.String
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_Solana_Proto_MessageVerifyingInput {
+  public var message: Swift.String
+  public var publicKey: Foundation.Data
+  public var signature: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+}
 extension WalletCore.TW_Solana_Proto_TokenProgramId : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
@@ -11920,6 +12162,36 @@ extension WalletCore.TW_Solana_Proto_PreSigningOutput : SwiftProtobuf.Message, S
     get
   }
 }
+extension WalletCore.TW_Solana_Proto_MessageSigningInput : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Solana_Proto_MessageSigningInput, rhs: WalletCore.TW_Solana_Proto_MessageSigningInput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Solana_Proto_MessageSigningOutput : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Solana_Proto_MessageSigningOutput, rhs: WalletCore.TW_Solana_Proto_MessageSigningOutput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Solana_Proto_MessageVerifyingInput : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Solana_Proto_MessageVerifyingInput, rhs: WalletCore.TW_Solana_Proto_MessageVerifyingInput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers final public class SolanaAddress : WalletCore.Address {
   final public var description: Swift.String {
     get
@@ -11931,6 +12203,11 @@ extension WalletCore.TW_Solana_Proto_PreSigningOutput : SwiftProtobuf.Message, S
 }
 public struct SolanaTransaction {
   public static func updateBlockhashAndSign(encodedTx: Swift.String, recentBlockhash: Swift.String, privateKeys: WalletCore.DataVector) -> Foundation.Data
+  public static func getComputeUnitPrice(encodedTx: Swift.String) -> Swift.String?
+  public static func getComputeUnitLimit(encodedTx: Swift.String) -> Swift.String?
+  public static func setComputeUnitPrice(encodedTx: Swift.String, price: Swift.String) -> Swift.String?
+  public static func setComputeUnitLimit(encodedTx: Swift.String, limit: Swift.String) -> Swift.String?
+  public static func setFeePayer(encodedTx: Swift.String, feePayer: Swift.String) -> Swift.String?
 }
 public struct StarkExMessageSigner {
   public static func signMessage(privateKey: WalletCore.PrivateKey, message: Swift.String) -> Swift.String
@@ -13213,7 +13490,6 @@ public struct TezosMessageSigner {
 }
 public typealias TheOpenNetworkTransfer = WalletCore.TW_TheOpenNetwork_Proto_Transfer
 public typealias TheOpenNetworkJettonTransfer = WalletCore.TW_TheOpenNetwork_Proto_JettonTransfer
-public typealias TheOpenNetworkCustomPayload = WalletCore.TW_TheOpenNetwork_Proto_CustomPayload
 public typealias TheOpenNetworkSigningInput = WalletCore.TW_TheOpenNetwork_Proto_SigningInput
 public typealias TheOpenNetworkSigningOutput = WalletCore.TW_TheOpenNetwork_Proto_SigningOutput
 public typealias TheOpenNetworkWalletVersion = WalletCore.TW_TheOpenNetwork_Proto_WalletVersion
@@ -13260,19 +13536,20 @@ public struct TW_TheOpenNetwork_Proto_Transfer {
   public var mode: Swift.UInt32
   public var comment: Swift.String
   public var bounceable: Swift.Bool
+  public var stateInit: Swift.String
   public var payload: WalletCore.TW_TheOpenNetwork_Proto_Transfer.OneOf_Payload?
   public var jettonTransfer: WalletCore.TW_TheOpenNetwork_Proto_JettonTransfer {
     get
     set
   }
-  public var customPayload: WalletCore.TW_TheOpenNetwork_Proto_CustomPayload {
+  public var customPayload: Swift.String {
     get
     set
   }
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public enum OneOf_Payload : Swift.Equatable {
     case jettonTransfer(WalletCore.TW_TheOpenNetwork_Proto_JettonTransfer)
-    case customPayload(WalletCore.TW_TheOpenNetwork_Proto_CustomPayload)
+    case customPayload(Swift.String)
     public static func == (a: WalletCore.TW_TheOpenNetwork_Proto_Transfer.OneOf_Payload, b: WalletCore.TW_TheOpenNetwork_Proto_Transfer.OneOf_Payload) -> Swift.Bool
   }
   public init()
@@ -13283,12 +13560,7 @@ public struct TW_TheOpenNetwork_Proto_JettonTransfer {
   public var toOwner: Swift.String
   public var responseAddress: Swift.String
   public var forwardAmount: Swift.UInt64
-  public var unknownFields: SwiftProtobuf.UnknownStorage
-  public init()
-}
-public struct TW_TheOpenNetwork_Proto_CustomPayload {
-  public var stateInit: Swift.String
-  public var payload: Swift.String
+  public var customPayload: Swift.String
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
@@ -13332,16 +13604,6 @@ extension WalletCore.TW_TheOpenNetwork_Proto_JettonTransfer : SwiftProtobuf.Mess
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public static func == (lhs: WalletCore.TW_TheOpenNetwork_Proto_JettonTransfer, rhs: WalletCore.TW_TheOpenNetwork_Proto_JettonTransfer) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension WalletCore.TW_TheOpenNetwork_Proto_CustomPayload : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: Swift.String
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
-  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_TheOpenNetwork_Proto_CustomPayload, rhs: WalletCore.TW_TheOpenNetwork_Proto_CustomPayload) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -13595,6 +13857,7 @@ public struct TW_Tron_Proto_Transaction {
   }
   public mutating func clearBlockHeader()
   public var feeLimit: Swift.Int64
+  public var memo: Swift.String
   public var contractOneof: WalletCore.TW_Tron_Proto_Transaction.OneOf_ContractOneof?
   public var transfer: WalletCore.TW_Tron_Proto_TransferContract {
     get
