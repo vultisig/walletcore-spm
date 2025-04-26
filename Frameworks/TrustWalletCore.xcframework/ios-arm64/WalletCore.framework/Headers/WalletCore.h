@@ -69,8 +69,6 @@ FOUNDATION_EXPORT const unsigned char WalletCoreVersionString[];
 #include "TWPublicKey.h"
 #include "TWPublicKeyType.h"
 #include "TWPurpose.h"
-#include "TWRippleXAddress.h"
-#include "TWSS58AddressType.h"
 #include "TWSegwitAddress.h"
 #include "TWSolanaAddress.h"
 #include "TWSolanaTransaction.h"
