@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the .xcframework
-XCFRAMEWORK_PATH="Frameworks/TrustWalletCore.xcframework"
+XCFRAMEWORK_PATH="Frameworks/WalletCoreCommon.xcframework"
 
 # Developer identity from your Keychain
 IDENTITY="G8Q5XUAJD9"

@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "walletcore",
-            targets: ["TrustWalletCore"]),
+            targets: ["WalletCoreCommon"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -17,8 +17,8 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "TrustWalletCore",
-            path: "Frameworks/TrustWalletCore.xcframework"
+            name: "WalletCoreCommon",
+            path: "Frameworks/WalletCoreCommon.xcframework"
         )
     ]
 )
