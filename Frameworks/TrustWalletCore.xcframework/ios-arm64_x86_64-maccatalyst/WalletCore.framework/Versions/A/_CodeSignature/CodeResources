@@ -582,56 +582,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rc7k8imeH3TGJkXXELd/kzM8SEV9mvvlYdJZsGS9Dbg=
+			kIlw0B/JG87zOaiEOxhZNtarp3hsxVX0IbzwRh43F38=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PdaCb9EcoVR7zwmKX7nHbYZ7LCFWubhQz5SnaE2Zx8A=
+			3PAH3XAkxAGw/khjb1Jjp21WKPiNBblMfVTXMhlZlag=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8CsmDS/1u+1SuI2qu2GNxWHIcq+c+LLgcl2Iwk9gzBQ=
+			VIpkWmFFbmcSniLm8dl/T2fe9Fp6HpMZJXICie4uMCg=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PdaCb9EcoVR7zwmKX7nHbYZ7LCFWubhQz5SnaE2Zx8A=
+			3PAH3XAkxAGw/khjb1Jjp21WKPiNBblMfVTXMhlZlag=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rc7k8imeH3TGJkXXELd/kzM8SEV9mvvlYdJZsGS9Dbg=
+			kIlw0B/JG87zOaiEOxhZNtarp3hsxVX0IbzwRh43F38=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			izyEuB7L7lSQ8RguzKmP622lVacNHr6u4nHgQIJYMhg=
+			J7PpGgswHVH8R05Y1t99AmZ5+qMPgKOLR499+CyRsEo=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XWJ34QqpIGGK1xyF/LENwG9ufvHO/GkiB2xdpJyfGRA=
+			ExlHU0ErzUjq4GmpfIW0m+JUQ09Tja/9wOy626HjMFQ=
 			</data>
 		</dict>
 		<key>Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			izyEuB7L7lSQ8RguzKmP622lVacNHr6u4nHgQIJYMhg=
+			J7PpGgswHVH8R05Y1t99AmZ5+qMPgKOLR499+CyRsEo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
