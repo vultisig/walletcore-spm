@@ -18,7 +18,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "TrustWalletCore",
-            path: "Frameworks/TrustWalletCore.xcframework"
+            url: "https://api.vultisig.com/TrustWalletCore.xcframework-v4.3.3.zip",
+            checksum: "45c90f32409b62ddac03a6c74bb8701cab8e7a5c63e55322203c2681dbc515a2"
         )
     ]
 )
