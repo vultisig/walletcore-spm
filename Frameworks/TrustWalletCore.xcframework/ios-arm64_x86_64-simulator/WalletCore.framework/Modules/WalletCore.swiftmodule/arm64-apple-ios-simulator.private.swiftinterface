@@ -3939,6 +3939,10 @@ public struct TW_Cosmos_Proto_Message {
     get
     set
   }
+  public var wasmInstantiateContractMessage: WalletCore.TW_Cosmos_Proto_Message.WasmInstantiateContract {
+    get
+    set
+  }
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public enum OneOf_MessageOneof : Swift.Equatable {
     case sendCoinsMessage(WalletCore.TW_Cosmos_Proto_Message.Send)
@@ -3963,6 +3967,7 @@ public struct TW_Cosmos_Proto_Message {
     case msgStrideLiquidStakingStake(WalletCore.TW_Cosmos_Proto_Message.MsgStrideLiquidStakingStake)
     case msgStrideLiquidStakingRedeem(WalletCore.TW_Cosmos_Proto_Message.MsgStrideLiquidStakingRedeem)
     case thorchainDepositMessage(WalletCore.TW_Cosmos_Proto_Message.THORChainDeposit)
+    case wasmInstantiateContractMessage(WalletCore.TW_Cosmos_Proto_Message.WasmInstantiateContract)
     public static func == (a: WalletCore.TW_Cosmos_Proto_Message.OneOf_MessageOneof, b: WalletCore.TW_Cosmos_Proto_Message.OneOf_MessageOneof) -> Swift.Bool
   }
   public enum AuthorizationType : SwiftProtobuf.Enum {
@@ -4148,6 +4153,16 @@ public struct TW_Cosmos_Proto_Message {
     public var contractAddress: Swift.String
     public var executeMsg: Swift.String
     public var coins: [WalletCore.TW_Cosmos_Proto_Amount]
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+  }
+  public struct WasmInstantiateContract {
+    public var sender: Swift.String
+    public var admin: Swift.String
+    public var codeID: Swift.UInt64
+    public var label: Swift.String
+    public var msg: Foundation.Data
+    public var initFunds: [WalletCore.TW_Cosmos_Proto_Amount]
     public var unknownFields: SwiftProtobuf.UnknownStorage
     public init()
   }
@@ -4522,6 +4537,16 @@ extension WalletCore.TW_Cosmos_Proto_Message.WasmExecuteContractGeneric : SwiftP
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public static func == (lhs: WalletCore.TW_Cosmos_Proto_Message.WasmExecuteContractGeneric, rhs: WalletCore.TW_Cosmos_Proto_Message.WasmExecuteContractGeneric) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Cosmos_Proto_Message.WasmInstantiateContract : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Cosmos_Proto_Message.WasmInstantiateContract, rhs: WalletCore.TW_Cosmos_Proto_Message.WasmInstantiateContract) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -5148,6 +5173,7 @@ public enum TW_Ethereum_Proto_MessageType : SwiftProtobuf.Enum {
   case typed
   case typedEip155
   case immutableX
+  case eip7702Authorization
   case UNRECOGNIZED(Swift.Int)
   public init()
   public init?(rawValue: Swift.Int)
