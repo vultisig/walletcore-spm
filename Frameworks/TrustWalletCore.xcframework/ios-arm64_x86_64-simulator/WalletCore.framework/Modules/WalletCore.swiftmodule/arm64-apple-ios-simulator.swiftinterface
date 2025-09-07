@@ -1,11 +1,11 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name WalletCore
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import Foundation
 import Swift
-import SwiftProtobuf
 @_exported import WalletCore
+import WalletCoreSwiftProtobuf
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
@@ -1069,16 +1069,17 @@ extension WalletCore.TW_Barz_Proto_DiamondCutInput : SwiftProtobuf.Message, Swif
     get
   }
 }
-public struct Barz {
-  public static func getCounterfactualAddress(input: Foundation.Data) -> Swift.String
-  public static func getInitCode(factory: Swift.String, publicKey: WalletCore.PublicKey, verificationFacet: Swift.String, salt: Swift.UInt32) -> Foundation.Data
-  public static func getFormattedSignature(signature: Foundation.Data, challenge: Foundation.Data, authenticatorData: Foundation.Data, clientDataJSON: Swift.String) -> Foundation.Data
-  public static func getPrefixedMsgHash(msgHash: Foundation.Data, barzAddress: Swift.String, chainId: Swift.UInt32) -> Foundation.Data
-  public static func getDiamondCutCode(input: Foundation.Data) -> Foundation.Data
-  public static func getAuthorizationHash(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data) -> Foundation.Data
-  public static func signAuthorization(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data, privateKey: Swift.String) -> Swift.String
-  public static func getEncodedHash(chainId: Foundation.Data, codeAddress: Swift.String, codeName: Swift.String, codeVersion: Swift.String, typeHash: Swift.String, domainSeparatorHash: Swift.String, sender: Swift.String, userOpHash: Swift.String) -> Foundation.Data
-  public static func getSignedHash(hash: Swift.String, privateKey: Swift.String) -> Foundation.Data
+@_hasMissingDesignatedInitializers final public class Barz {
+  public static func getInitCode(factory: Swift.String, publicKey: WalletCore.PublicKey, verificationFacet: Swift.String, salt: Swift.UInt32) -> Foundation.Data?
+  public static func getFormattedSignature(signature: Foundation.Data, challenge: Foundation.Data, authenticatorData: Foundation.Data, clientDataJson: Swift.String) -> Foundation.Data?
+  public static func getPrefixedMsgHash(msgHash: Foundation.Data, barzAddress: Swift.String, chainId: Swift.UInt32) -> Foundation.Data?
+  public static func signAuthorization(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data, privateKey: Swift.String) -> Swift.String?
+  public static func getDiamondCutCode(input: Foundation.Data) -> Foundation.Data?
+  public static func getAuthorizationHash(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data) -> Foundation.Data?
+  public static func getSignedHash(hash: Swift.String, privateKey: Swift.String) -> Foundation.Data?
+  public static func getCounterfactualAddress(input: Foundation.Data) -> Swift.String?
+  public static func getEncodedHash(chainId: Foundation.Data, codeAddress: Swift.String, codeName: Swift.String, codeVersion: Swift.String, typeHash: Swift.String, domainSeparatorHash: Swift.String, sender: Swift.String, userOpHash: Swift.String) -> Foundation.Data?
+  @objc deinit
 }
 public struct Base32 {
   public static func decodeWithAlphabet(string: Swift.String, alphabet: Swift.String?) -> Foundation.Data?
@@ -5697,8 +5698,12 @@ extension WalletCore.TW_Ethereum_Proto_MessageVerifyingInput : SwiftProtobuf.Mes
     get
   }
 }
-public struct Ethereum {
-  public static func eip2645GetPath(ethAddress: Swift.String, layer: Swift.String, application: Swift.String, index: Swift.String) -> Swift.String
+@_hasMissingDesignatedInitializers final public class Ethereum {
+  public static func addressChecksummed(address: Swift.String) -> Swift.String?
+  public static func eip2645GetPath(ethAddress: Swift.String, layer: Swift.String, application: Swift.String, index: Swift.String) -> Swift.String?
+  public static func eip1014Create2Address(from: Swift.String, salt: Foundation.Data, initCodeHash: Foundation.Data) -> Swift.String?
+  public static func eip1967ProxyInitCode(logicAddress: Swift.String, data: Foundation.Data) -> Foundation.Data?
+  @objc deinit
 }
 public typealias EthereumAbiBoolType = WalletCore.TW_EthereumAbi_Proto_BoolType
 public typealias EthereumAbiNumberNType = WalletCore.TW_EthereumAbi_Proto_NumberNType
@@ -11070,6 +11075,10 @@ public struct TW_Polkadot_Proto_Staking {
     get
     set
   }
+  public var bondExtraAndNominate: WalletCore.TW_Polkadot_Proto_Staking.BondExtraAndNominate {
+    get
+    set
+  }
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public enum OneOf_MessageOneof : Swift.Equatable {
     case bond(WalletCore.TW_Polkadot_Proto_Staking.Bond)
@@ -11081,6 +11090,7 @@ public struct TW_Polkadot_Proto_Staking {
     case chill(WalletCore.TW_Polkadot_Proto_Staking.Chill)
     case chillAndUnbond(WalletCore.TW_Polkadot_Proto_Staking.ChillAndUnbond)
     case rebond(WalletCore.TW_Polkadot_Proto_Staking.Rebond)
+    case bondExtraAndNominate(WalletCore.TW_Polkadot_Proto_Staking.BondExtraAndNominate)
     public static func == (a: WalletCore.TW_Polkadot_Proto_Staking.OneOf_MessageOneof, b: WalletCore.TW_Polkadot_Proto_Staking.OneOf_MessageOneof) -> Swift.Bool
   }
   public struct Bond {
@@ -11119,6 +11129,36 @@ public struct TW_Polkadot_Proto_Staking {
       get
     }
     public mutating func clearBondCallIndices()
+    public var nominateCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasNominateCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearNominateCallIndices()
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+  }
+  public struct BondExtraAndNominate {
+    public var value: Foundation.Data
+    public var nominators: [Swift.String]
+    public var callIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearCallIndices()
+    public var bondExtraCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
+      get
+      set
+    }
+    public var hasBondExtraCallIndices: Swift.Bool {
+      get
+    }
+    public mutating func clearBondExtraCallIndices()
     public var nominateCallIndices: WalletCore.TW_Polkadot_Proto_CallIndices {
       get
       set
@@ -11419,6 +11459,16 @@ extension WalletCore.TW_Polkadot_Proto_Staking.BondAndNominate : SwiftProtobuf.M
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public static func == (lhs: WalletCore.TW_Polkadot_Proto_Staking.BondAndNominate, rhs: WalletCore.TW_Polkadot_Proto_Staking.BondAndNominate) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Polkadot_Proto_Staking.BondExtraAndNominate : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Polkadot_Proto_Staking.BondExtraAndNominate, rhs: WalletCore.TW_Polkadot_Proto_Staking.BondExtraAndNominate) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -13412,7 +13462,7 @@ extension WalletCore.TW_Solana_Proto_MessageVerifyingInput : SwiftProtobuf.Messa
   public static func setComputeUnitPrice(encodedTx: Swift.String, price: Swift.String) -> Swift.String?
   public static func setComputeUnitLimit(encodedTx: Swift.String, limit: Swift.String) -> Swift.String?
   public static func setFeePayer(encodedTx: Swift.String, feePayer: Swift.String) -> Swift.String?
-  public static func addInstruction(encodedTx: Swift.String, instruction: Swift.String) -> Swift.String?
+  public static func insertInstruction(encodedTx: Swift.String, insertAt: Swift.Int32, instruction: Swift.String) -> Swift.String?
   @objc deinit
 }
 public struct StarkExMessageSigner {
@@ -13792,8 +13842,10 @@ public enum StellarVersionByte : Swift.UInt16, Swift.CaseIterable {
   public static func load(path: Swift.String) -> WalletCore.StoredKey?
   public static func importPrivateKey(privateKey: Foundation.Data, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType) -> WalletCore.StoredKey?
   public static func importPrivateKeyWithEncryption(privateKey: Foundation.Data, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption) -> WalletCore.StoredKey?
+  public static func importPrivateKeyWithEncryptionAndDerivation(privateKey: Foundation.Data, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption, derivation: WalletCore.Derivation) -> WalletCore.StoredKey?
   public static func importPrivateKeyEncoded(privateKey: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType) -> WalletCore.StoredKey?
   public static func importPrivateKeyEncodedWithEncryption(privateKey: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption) -> WalletCore.StoredKey?
+  public static func importPrivateKeyEncodedWithEncryptionAndDerivation(privateKey: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption, derivation: WalletCore.Derivation) -> WalletCore.StoredKey?
   public static func importHDWallet(mnemonic: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType) -> WalletCore.StoredKey?
   public static func importHDWalletWithEncryption(mnemonic: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption) -> WalletCore.StoredKey?
   public static func importJSON(json: Foundation.Data) -> WalletCore.StoredKey?
@@ -14803,7 +14855,7 @@ extension WalletCore.TW_TheOpenNetwork_Proto_SendMode : Swift.CaseIterable {
 }
 public struct TW_TheOpenNetwork_Proto_Transfer {
   public var dest: Swift.String
-  public var amount: Swift.UInt64
+  public var amount: Foundation.Data
   public var mode: Swift.UInt32
   public var comment: Swift.String
   public var bounceable: Swift.Bool
@@ -14827,10 +14879,10 @@ public struct TW_TheOpenNetwork_Proto_Transfer {
 }
 public struct TW_TheOpenNetwork_Proto_JettonTransfer {
   public var queryID: Swift.UInt64
-  public var jettonAmount: Swift.UInt64
+  public var jettonAmount: Foundation.Data
   public var toOwner: Swift.String
   public var responseAddress: Swift.String
-  public var forwardAmount: Swift.UInt64
+  public var forwardAmount: Foundation.Data
   public var customPayload: Swift.String
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
@@ -15225,6 +15277,10 @@ public struct TW_Tron_Proto_SigningInput {
     set
   }
   public var txID: Swift.String {
+    get
+    set
+  }
+  public var rawJson: Swift.String {
     get
     set
   }
