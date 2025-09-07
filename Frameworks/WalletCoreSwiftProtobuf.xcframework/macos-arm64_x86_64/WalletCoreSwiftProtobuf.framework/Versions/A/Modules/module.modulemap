@@ -1,0 +1,11 @@
+framework module WalletCoreSwiftProtobuf {
+  umbrella header "WalletCoreSwiftProtobuf-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module WalletCoreSwiftProtobuf.Swift {
+  header "WalletCoreSwiftProtobuf-Swift.h"
+  requires objc
+}
