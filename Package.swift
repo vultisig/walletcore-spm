@@ -11,10 +11,6 @@ let package = Package(
             name: "walletcore",
             targets: ["TrustWalletCore"]),
     ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/vultisig/WalletCoreSwiftProtobuf.git" , branch: "main"),
-    ],
     targets: [
         .binaryTarget(
             name: "TrustWalletCore",
