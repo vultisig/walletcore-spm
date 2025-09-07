@@ -1,15 +1,25 @@
 {
-  "originHash" : "26a8657c167f6eb0d5f23f1eb40f68ec199457e58e200fcba6bc4cb9c77aa425",
-  "pins" : [
-    {
-      "identity" : "swift-protobuf",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-protobuf.git",
-      "state" : {
-        "revision" : "9f0c76544701845ad98716f3f6a774a892152bcb",
-        "version" : "1.26.0"
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftProtobuf",
+        "repositoryURL": "https://github.com/apple/swift-protobuf.git",
+        "state": {
+          "branch": null,
+          "revision": "e3f69fd321d0c9fcdc16fb576a0cdd956675face",
+          "version": "1.31.0"
+        }
+      },
+      {
+        "package": "WalletCoreSwiftProtobuf",
+        "repositoryURL": "https://github.com/vultisig/WalletCoreSwiftProtobuf.git",
+        "state": {
+          "branch": "main",
+          "revision": "d69be19f9bff259d54778fa27d08802cc8124c8b",
+          "version": null
+        }
       }
-    }
-  ],
-  "version" : 3
+    ]
+  },
+  "version": 1
 }
