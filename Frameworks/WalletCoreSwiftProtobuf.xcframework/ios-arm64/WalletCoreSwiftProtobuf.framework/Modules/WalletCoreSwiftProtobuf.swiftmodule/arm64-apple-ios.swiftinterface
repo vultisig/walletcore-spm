@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name WalletCoreSwiftProtobuf
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import Dispatch
 import Foundation
 import Swift
@@ -108,6 +108,7 @@ extension WalletCoreSwiftProtobuf.Google_Protobuf_Mixin : WalletCoreSwiftProtobu
 }
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension _Concurrency.AsyncSequence where Self.Element == Swift.UInt8 {
+  #if compiler(>=5.3) && $NonescapableTypes
   @inlinable public func binaryProtobufDelimitedMessages<M>(of messageType: M.Type = M.self, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) -> WalletCoreSwiftProtobuf.AsyncMessageSequence<Self, M> where M : WalletCoreSwiftProtobuf.Message {
         AsyncMessageSequence<Self, M>(
             base: self,
@@ -116,11 +117,14 @@ extension _Concurrency.AsyncSequence where Self.Element == Swift.UInt8 {
             options: options
         )
     }
+  #endif
 }
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public struct AsyncMessageSequence<Base, M> : _Concurrency.AsyncSequence where Base : _Concurrency.AsyncSequence, M : WalletCoreSwiftProtobuf.Message, Base.Element == Swift.UInt8 {
   public typealias Element = M
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(base: Base, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions())
+  #endif
   public struct AsyncIterator : _Concurrency.AsyncIteratorProtocol {
     @usableFromInline
     internal var iterator: Base.AsyncIterator?
@@ -130,6 +134,7 @@ public struct AsyncMessageSequence<Base, M> : _Concurrency.AsyncSequence where B
     internal let partial: Swift.Bool
     @usableFromInline
     internal let options: WalletCoreSwiftProtobuf.BinaryDecodingOptions
+    #if compiler(>=5.3) && $NonescapableTypes
     @inlinable internal mutating func nextVarInt() async throws -> Swift.UInt64? {
             var messageSize: UInt64 = 0
             var shift: UInt64 = 0
@@ -152,8 +157,10 @@ public struct AsyncMessageSequence<Base, M> : _Concurrency.AsyncSequence where B
             }
             return nil   
         }
+    #endif
     @usableFromInline
     internal mutating func readBytes(_ size: Swift.Int) async throws -> [Swift.UInt8]
+    #if compiler(>=5.3) && $NonescapableTypes
     @inlinable public mutating func next() async throws -> M? {
             guard let messageSize = try await nextVarInt() else {
                 iterator = nil
@@ -179,6 +186,7 @@ public struct AsyncMessageSequence<Base, M> : _Concurrency.AsyncSequence where B
                 options: options
             )
         }
+    #endif
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     public typealias Element = M
     @available(iOS 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, macOS 15.0, *)
@@ -224,8 +232,12 @@ public enum BinaryDelimited {
     }
   }
   public static func serialize(message: any WalletCoreSwiftProtobuf.Message, to stream: Foundation.OutputStream, partial: Swift.Bool = false) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parse<M>(messageType: M.Type, from stream: Foundation.InputStream, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws -> M where M : WalletCoreSwiftProtobuf.Message
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func merge<M>(into message: inout M, from stream: Foundation.InputStream, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where M : WalletCoreSwiftProtobuf.Message
+  #endif
 }
 public enum BinaryEncodingError : Swift.Error, Swift.Hashable {
   case anyTranscodeFailure
@@ -242,58 +254,96 @@ public struct BinaryEncodingOptions : Swift.Sendable {
 }
 public protocol Decoder {
   mutating func handleConflictingOneOf() throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func nextFieldNumber() throws -> Swift.Int?
+  #endif
   mutating func decodeSingularFloatField(value: inout Swift.Float) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularFloatField(value: inout Swift.Float?) throws
+  #endif
   mutating func decodeRepeatedFloatField(value: inout [Swift.Float]) throws
   mutating func decodeSingularDoubleField(value: inout Swift.Double) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularDoubleField(value: inout Swift.Double?) throws
+  #endif
   mutating func decodeRepeatedDoubleField(value: inout [Swift.Double]) throws
   mutating func decodeSingularInt32Field(value: inout Swift.Int32) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularInt32Field(value: inout Swift.Int32?) throws
+  #endif
   mutating func decodeRepeatedInt32Field(value: inout [Swift.Int32]) throws
   mutating func decodeSingularInt64Field(value: inout Swift.Int64) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularInt64Field(value: inout Swift.Int64?) throws
+  #endif
   mutating func decodeRepeatedInt64Field(value: inout [Swift.Int64]) throws
   mutating func decodeSingularUInt32Field(value: inout Swift.UInt32) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularUInt32Field(value: inout Swift.UInt32?) throws
+  #endif
   mutating func decodeRepeatedUInt32Field(value: inout [Swift.UInt32]) throws
   mutating func decodeSingularUInt64Field(value: inout Swift.UInt64) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularUInt64Field(value: inout Swift.UInt64?) throws
+  #endif
   mutating func decodeRepeatedUInt64Field(value: inout [Swift.UInt64]) throws
   mutating func decodeSingularSInt32Field(value: inout Swift.Int32) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularSInt32Field(value: inout Swift.Int32?) throws
+  #endif
   mutating func decodeRepeatedSInt32Field(value: inout [Swift.Int32]) throws
   mutating func decodeSingularSInt64Field(value: inout Swift.Int64) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularSInt64Field(value: inout Swift.Int64?) throws
+  #endif
   mutating func decodeRepeatedSInt64Field(value: inout [Swift.Int64]) throws
   mutating func decodeSingularFixed32Field(value: inout Swift.UInt32) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularFixed32Field(value: inout Swift.UInt32?) throws
+  #endif
   mutating func decodeRepeatedFixed32Field(value: inout [Swift.UInt32]) throws
   mutating func decodeSingularFixed64Field(value: inout Swift.UInt64) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularFixed64Field(value: inout Swift.UInt64?) throws
+  #endif
   mutating func decodeRepeatedFixed64Field(value: inout [Swift.UInt64]) throws
   mutating func decodeSingularSFixed32Field(value: inout Swift.Int32) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularSFixed32Field(value: inout Swift.Int32?) throws
+  #endif
   mutating func decodeRepeatedSFixed32Field(value: inout [Swift.Int32]) throws
   mutating func decodeSingularSFixed64Field(value: inout Swift.Int64) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularSFixed64Field(value: inout Swift.Int64?) throws
+  #endif
   mutating func decodeRepeatedSFixed64Field(value: inout [Swift.Int64]) throws
   mutating func decodeSingularBoolField(value: inout Swift.Bool) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularBoolField(value: inout Swift.Bool?) throws
+  #endif
   mutating func decodeRepeatedBoolField(value: inout [Swift.Bool]) throws
   mutating func decodeSingularStringField(value: inout Swift.String) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularStringField(value: inout Swift.String?) throws
+  #endif
   mutating func decodeRepeatedStringField(value: inout [Swift.String]) throws
   mutating func decodeSingularBytesField(value: inout Foundation.Data) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularBytesField(value: inout Foundation.Data?) throws
+  #endif
   mutating func decodeRepeatedBytesField(value: inout [Foundation.Data]) throws
   mutating func decodeSingularEnumField<E>(value: inout E) throws where E : WalletCoreSwiftProtobuf.Enum, E.RawValue == Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularEnumField<E>(value: inout E?) throws where E : WalletCoreSwiftProtobuf.Enum, E.RawValue == Swift.Int
+  #endif
   mutating func decodeRepeatedEnumField<E>(value: inout [E]) throws where E : WalletCoreSwiftProtobuf.Enum, E.RawValue == Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularMessageField<M>(value: inout M?) throws where M : WalletCoreSwiftProtobuf.Message
+  #endif
   mutating func decodeRepeatedMessageField<M>(value: inout [M]) throws where M : WalletCoreSwiftProtobuf.Message
+  #if compiler(>=5.3) && $NonescapableTypes
   mutating func decodeSingularGroupField<G>(value: inout G?) throws where G : WalletCoreSwiftProtobuf.Message
+  #endif
   mutating func decodeRepeatedGroupField<G>(value: inout [G]) throws where G : WalletCoreSwiftProtobuf.Message
   mutating func decodeMapField<KeyType, ValueType>(fieldType: WalletCoreSwiftProtobuf._ProtobufMap<KeyType, ValueType>.Type, value: inout WalletCoreSwiftProtobuf._ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType : WalletCoreSwiftProtobuf.MapKeyType, ValueType : WalletCoreSwiftProtobuf.MapValueType
   mutating func decodeMapField<KeyType, ValueType>(fieldType: WalletCoreSwiftProtobuf._ProtobufEnumMap<KeyType, ValueType>.Type, value: inout WalletCoreSwiftProtobuf._ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where KeyType : WalletCoreSwiftProtobuf.MapKeyType, ValueType : WalletCoreSwiftProtobuf.Enum, ValueType.RawValue == Swift.Int
@@ -318,7 +368,9 @@ public enum Google_Protobuf_Edition : Swift.Int, WalletCoreSwiftProtobuf.Enum, S
   case edition99999TestOnly
   case max
   public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_Edition]
   public typealias RawValue = Swift.Int
   nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_Edition] {
@@ -517,7 +569,9 @@ public struct Google_Protobuf_ExtensionRangeOptions : WalletCoreSwiftProtobuf.Ex
     case declaration
     case unverified
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_ExtensionRangeOptions.VerificationState]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_ExtensionRangeOptions.VerificationState] {
@@ -684,7 +738,9 @@ public struct Google_Protobuf_FieldDescriptorProto : Swift.Sendable {
     case sint32
     case sint64
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum] {
@@ -699,7 +755,9 @@ public struct Google_Protobuf_FieldDescriptorProto : Swift.Sendable {
     case repeated
     case required
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FieldDescriptorProto.Label]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FieldDescriptorProto.Label] {
@@ -1046,7 +1104,9 @@ public struct Google_Protobuf_FileOptions : WalletCoreSwiftProtobuf.ExtensibleMe
     case codeSize
     case liteRuntime
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FileOptions.OptimizeMode]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FileOptions.OptimizeMode] {
@@ -1220,7 +1280,9 @@ public struct Google_Protobuf_FieldOptions : WalletCoreSwiftProtobuf.ExtensibleM
     case cord
     case stringPiece
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.CType]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.CType] {
@@ -1235,7 +1297,9 @@ public struct Google_Protobuf_FieldOptions : WalletCoreSwiftProtobuf.ExtensibleM
     case jsString
     case jsNumber
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.JSType]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.JSType] {
@@ -1250,7 +1314,9 @@ public struct Google_Protobuf_FieldOptions : WalletCoreSwiftProtobuf.ExtensibleM
     case retentionRuntime
     case retentionSource
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.OptionRetention]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.OptionRetention] {
@@ -1272,7 +1338,9 @@ public struct Google_Protobuf_FieldOptions : WalletCoreSwiftProtobuf.ExtensibleM
     case targetTypeService
     case targetTypeMethod
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.OptionTargetType]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FieldOptions.OptionTargetType] {
@@ -1485,7 +1553,9 @@ public struct Google_Protobuf_MethodOptions : WalletCoreSwiftProtobuf.Extensible
     case noSideEffects
     case idempotent
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_MethodOptions.IdempotencyLevel]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_MethodOptions.IdempotencyLevel] {
@@ -1635,7 +1705,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case implicit
     case legacyRequired
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.FieldPresence]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.FieldPresence] {
@@ -1650,7 +1722,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case open
     case closed
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.EnumType]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.EnumType] {
@@ -1665,7 +1739,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case packed
     case expanded
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.RepeatedFieldEncoding]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.RepeatedFieldEncoding] {
@@ -1680,7 +1756,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case verify
     case none
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.Utf8Validation]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.Utf8Validation] {
@@ -1695,7 +1773,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case lengthPrefixed
     case delimited
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.MessageEncoding]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.MessageEncoding] {
@@ -1710,7 +1790,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case allow
     case legacyBestEffort
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.JsonFormat]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.JsonFormat] {
@@ -1725,7 +1807,9 @@ public struct Google_Protobuf_FeatureSet : WalletCoreSwiftProtobuf.ExtensibleMes
     case style2024
     case styleLegacy
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.EnforceNamingStyle]
     public typealias RawValue = Swift.Int
     nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_FeatureSet.EnforceNamingStyle] {
@@ -1859,7 +1943,9 @@ public struct Google_Protobuf_GeneratedCodeInfo : Swift.Sendable {
       case set
       case alias
       public init()
+      #if compiler(>=5.3) && $NonescapableTypes
       public init?(rawValue: Swift.Int)
+      #endif
       public typealias AllCases = [WalletCoreSwiftProtobuf.Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic]
       public typealias RawValue = Swift.Int
       nonisolated public static var allCases: [WalletCoreSwiftProtobuf.Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic] {
@@ -2364,7 +2450,9 @@ extension WalletCoreSwiftProtobuf.Google_Protobuf_Empty : WalletCoreSwiftProtobu
 }
 @preconcurrency public protocol Enum : Swift.Hashable, Swift.RawRepresentable, Swift.Sendable {
   init()
+  #if compiler(>=5.3) && $NonescapableTypes
   init?(rawValue: Swift.Int)
+  #endif
   var rawValue: Swift.Int { get }
 }
 extension WalletCoreSwiftProtobuf.Enum {
@@ -2375,7 +2463,9 @@ extension WalletCoreSwiftProtobuf.Enum {
 }
 extension WalletCoreSwiftProtobuf.ExtensibleMessage {
   public mutating func setExtensionValue<F>(ext: WalletCoreSwiftProtobuf.MessageExtension<F, Self>, value: F.ValueType) where F : WalletCoreSwiftProtobuf.ExtensionField
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getExtensionValue<F>(ext: WalletCoreSwiftProtobuf.MessageExtension<F, Self>) -> F.ValueType? where F : WalletCoreSwiftProtobuf.ExtensionField
+  #endif
   public func hasExtensionValue<F>(ext: WalletCoreSwiftProtobuf.MessageExtension<F, Self>) -> Swift.Bool where F : WalletCoreSwiftProtobuf.ExtensionField
   public mutating func clearExtensionValue<F>(ext: WalletCoreSwiftProtobuf.MessageExtension<F, Self>) where F : WalletCoreSwiftProtobuf.ExtensionField
 }
@@ -2404,7 +2494,9 @@ extension WalletCoreSwiftProtobuf.AnyExtensionField {
   associatedtype ValueType
   var value: Self.ValueType { get set }
   init(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, value: Self.ValueType)
+  #if compiler(>=5.3) && $NonescapableTypes
   init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
 }
 public struct OptionalExtensionField<T> : WalletCoreSwiftProtobuf.ExtensionField where T : WalletCoreSwiftProtobuf.FieldType {
   public typealias BaseType = T.BaseType
@@ -2419,7 +2511,9 @@ public struct OptionalExtensionField<T> : WalletCoreSwiftProtobuf.ExtensionField
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -2438,7 +2532,9 @@ public struct RepeatedExtensionField<T> : WalletCoreSwiftProtobuf.ExtensionField
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -2457,7 +2553,9 @@ public struct PackedExtensionField<T> : WalletCoreSwiftProtobuf.ExtensionField w
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -2476,7 +2574,9 @@ public struct OptionalEnumExtensionField<E> : WalletCoreSwiftProtobuf.ExtensionF
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -2495,7 +2595,9 @@ public struct RepeatedEnumExtensionField<E> : WalletCoreSwiftProtobuf.ExtensionF
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -2514,7 +2616,9 @@ public struct PackedEnumExtensionField<E> : WalletCoreSwiftProtobuf.ExtensionFie
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -2533,7 +2637,9 @@ public struct OptionalMessageExtensionField<M> : WalletCoreSwiftProtobuf.Extensi
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -2555,7 +2661,9 @@ public struct RepeatedMessageExtensionField<M> : WalletCoreSwiftProtobuf.Extensi
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -2577,7 +2685,9 @@ public struct OptionalGroupExtensionField<G> : WalletCoreSwiftProtobuf.Extension
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -2599,7 +2709,9 @@ public struct RepeatedGroupExtensionField<G> : WalletCoreSwiftProtobuf.Extension
   public func hash(into hasher: inout Swift.Hasher)
   public func isEqual(other: any WalletCoreSwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?<D>(protobufExtension: any WalletCoreSwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -2613,10 +2725,12 @@ public struct ExtensionFieldValueSet : Swift.Hashable, Swift.Sendable {
   public init()
   public func hash(into hasher: inout Swift.Hasher)
   public func traverse<V>(visitor: inout V, start: Swift.Int, end: Swift.Int) throws where V : WalletCoreSwiftProtobuf.Visitor
+  #if compiler(>=5.3) && $NonescapableTypes
   public subscript(index: Swift.Int) -> (any WalletCoreSwiftProtobuf.AnyExtensionField)? {
     get
     set
   }
+  #endif
   public var isInitialized: Swift.Bool {
     get
   }
@@ -2625,8 +2739,12 @@ public struct ExtensionFieldValueSet : Swift.Hashable, Swift.Sendable {
   }
 }
 @preconcurrency public protocol ExtensionMap : Swift.Sendable {
+  #if compiler(>=5.3) && $NonescapableTypes
   subscript(messageType: any WalletCoreSwiftProtobuf.Message.Type, fieldNumber: Swift.Int) -> (any WalletCoreSwiftProtobuf.AnyMessageExtension)? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func fieldNumberForProto(messageType: any WalletCoreSwiftProtobuf.Message.Type, protoFieldName: Swift.String) -> Swift.Int?
+  #endif
 }
 public struct Google_Protobuf_FieldMask : Swift.Sendable {
   public var paths: [Swift.String]
@@ -2646,7 +2764,9 @@ extension WalletCoreSwiftProtobuf.Google_Protobuf_FieldMask : WalletCoreSwiftPro
 @preconcurrency public protocol FieldType : Swift.Sendable {
   associatedtype BaseType : Swift.Hashable, Swift.Sendable
   static var proto3DefaultValue: Self.BaseType { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   static func decodeSingular<D>(value: inout Self.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   static func decodeRepeated<D>(value: inout [Self.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   static func visitSingular<V>(value: Self.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   static func visitRepeated<V>(value: [Self.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2665,7 +2785,9 @@ public struct ProtobufFloat : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwift
   public static var proto3DefaultValue: Swift.Float {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufFloat.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufFloat.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufFloat.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufFloat.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2676,7 +2798,9 @@ public struct ProtobufDouble : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwif
   public static var proto3DefaultValue: Swift.Double {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufDouble.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufDouble.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufDouble.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufDouble.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2687,7 +2811,9 @@ public struct ProtobufInt32 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwift
   public static var proto3DefaultValue: Swift.Int32 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufInt32.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufInt32.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufInt32.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufInt32.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2698,7 +2824,9 @@ public struct ProtobufInt64 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwift
   public static var proto3DefaultValue: Swift.Int64 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufInt64.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufInt64.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufInt64.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufInt64.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2709,7 +2837,9 @@ public struct ProtobufUInt32 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwif
   public static var proto3DefaultValue: Swift.UInt32 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufUInt32.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufUInt32.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufUInt32.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufUInt32.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2720,7 +2850,9 @@ public struct ProtobufUInt64 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwif
   public static var proto3DefaultValue: Swift.UInt64 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufUInt64.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufUInt64.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufUInt64.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufUInt64.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2731,7 +2863,9 @@ public struct ProtobufSInt32 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwif
   public static var proto3DefaultValue: Swift.Int32 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufSInt32.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufSInt32.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufSInt32.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufSInt32.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2742,7 +2876,9 @@ public struct ProtobufSInt64 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwif
   public static var proto3DefaultValue: Swift.Int64 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufSInt64.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufSInt64.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufSInt64.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufSInt64.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2753,7 +2889,9 @@ public struct ProtobufFixed32 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwi
   public static var proto3DefaultValue: Swift.UInt32 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufFixed32.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufFixed32.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufFixed32.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufFixed32.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2764,7 +2902,9 @@ public struct ProtobufFixed64 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwi
   public static var proto3DefaultValue: Swift.UInt64 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufFixed64.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufFixed64.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufFixed64.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufFixed64.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2775,7 +2915,9 @@ public struct ProtobufSFixed32 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSw
   public static var proto3DefaultValue: Swift.Int32 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufSFixed32.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufSFixed32.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufSFixed32.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufSFixed32.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2786,7 +2928,9 @@ public struct ProtobufSFixed64 : WalletCoreSwiftProtobuf.FieldType, WalletCoreSw
   public static var proto3DefaultValue: Swift.Int64 {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufSFixed64.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufSFixed64.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufSFixed64.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufSFixed64.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2797,7 +2941,9 @@ public struct ProtobufBool : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwiftP
   public static var proto3DefaultValue: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufBool.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufBool.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufBool.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufBool.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2809,7 +2955,9 @@ public struct ProtobufString : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwif
   public static var proto3DefaultValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufString.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufString.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufString.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufString.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2820,7 +2968,9 @@ public struct ProtobufBytes : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwift
   public static var proto3DefaultValue: Foundation.Data {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeSingular<D>(value: inout WalletCoreSwiftProtobuf.ProtobufBytes.BaseType?, from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   public static func decodeRepeated<D>(value: inout [WalletCoreSwiftProtobuf.ProtobufBytes.BaseType], from decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public static func visitSingular<V>(value: WalletCoreSwiftProtobuf.ProtobufBytes.BaseType, fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func visitRepeated<V>(value: [WalletCoreSwiftProtobuf.ProtobufBytes.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
@@ -2829,16 +2979,24 @@ public struct ProtobufBytes : WalletCoreSwiftProtobuf.FieldType, WalletCoreSwift
 public let defaultAnyTypeURLPrefix: Swift.String
 extension WalletCoreSwiftProtobuf.Google_Protobuf_Any {
   public init(message: any WalletCoreSwiftProtobuf.Message, partial: Swift.Bool = false, typePrefix: Swift.String = defaultAnyTypeURLPrefix) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   @_disfavoredOverload public init(textFormatString: Swift.String, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil) throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(textFormatString: Swift.String, options: WalletCoreSwiftProtobuf.TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil) throws
+  #endif
   public func isA<M>(_ type: M.Type) -> Swift.Bool where M : WalletCoreSwiftProtobuf.Message
   public func hash(into hasher: inout Swift.Hasher)
 }
 extension WalletCoreSwiftProtobuf.Google_Protobuf_Any {
   @discardableResult
   public static func register(messageType: any WalletCoreSwiftProtobuf.Message.Type) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func messageType(forTypeURL url: Swift.String) -> (any WalletCoreSwiftProtobuf.Message.Type)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func messageType(forMessageName name: Swift.String) -> (any WalletCoreSwiftProtobuf.Message.Type)?
+  #endif
 }
 extension WalletCoreSwiftProtobuf.Google_Protobuf_Duration {
   public init(seconds: Swift.Int64 = 0, nanos: Swift.Int32 = 0)
@@ -2870,7 +3028,9 @@ public func - (lhs: WalletCoreSwiftProtobuf.Google_Protobuf_Timestamp, rhs: Wall
 extension WalletCoreSwiftProtobuf.Google_Protobuf_FieldMask {
   public init(protoPaths: [Swift.String])
   public init(protoPaths: Swift.String...)
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(jsonPaths: Swift.String...)
+  #endif
 }
 extension WalletCoreSwiftProtobuf.Google_Protobuf_FieldMask {
   public init<M>(allFieldsOf messageType: M.Type) where M : WalletCoreSwiftProtobuf.Message, M : WalletCoreSwiftProtobuf._ProtoNameProviding
@@ -2917,10 +3077,12 @@ extension WalletCoreSwiftProtobuf.Google_Protobuf_Struct : Swift.ExpressibleByDi
 }
 extension WalletCoreSwiftProtobuf.Google_Protobuf_Struct {
   public init(fields: [Swift.String : WalletCoreSwiftProtobuf.Google_Protobuf_Value])
+  #if compiler(>=5.3) && $NonescapableTypes
   public subscript(key: Swift.String) -> WalletCoreSwiftProtobuf.Google_Protobuf_Value? {
     get
     set(newValue)
   }
+  #endif
 }
 extension WalletCoreSwiftProtobuf.Google_Protobuf_Timestamp {
   public init(seconds: Swift.Int64 = 0, nanos: Swift.Int32 = 0)
@@ -3116,53 +3278,73 @@ extension WalletCoreSwiftProtobuf._MessageImplementationBase {
   public func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
 }
 extension WalletCoreSwiftProtobuf.Message {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(unpackingAny: WalletCoreSwiftProtobuf.Google_Protobuf_Any, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws
+  #endif
 }
 extension WalletCoreSwiftProtobuf.Message {
   public func serializedBytes<Bytes>(partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes where Bytes : WalletCoreSwiftProtobuf.SwiftProtobufContiguousBytes
+  #if compiler(>=5.3) && $NonescapableTypes
   @inlinable public init<Bytes>(serializedBytes bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : WalletCoreSwiftProtobuf.SwiftProtobufContiguousBytes {
         self.init()
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @inlinable public mutating func merge<Bytes>(serializedBytes bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : WalletCoreSwiftProtobuf.SwiftProtobufContiguousBytes {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
             try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
         }
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @usableFromInline
   internal mutating func _merge(rawBuffer body: Swift.UnsafeRawBufferPointer, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)?, partial: Swift.Bool, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions) throws
+  #endif
 }
 extension WalletCoreSwiftProtobuf.Message {
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, renamed: "init(serializedBytes:extensions:partial:options:)")
   @inlinable public init(serializedData data: Foundation.Data, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
         self.init()
         try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, renamed: "init(serializedBytes:extensions:partial:options:)")
   @inlinable @_disfavoredOverload public init<Bytes>(contiguousBytes bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
         self.init()
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, message: "Please conform your Bytes type to `SwiftProtobufContiguousBytes` instead of `Foundation.ContiguousBytes`.")
   @inlinable @_disfavoredOverload public init<Bytes>(serializedBytes bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
         self.init()
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, renamed: "merge(serializedBytes:extensions:partial:options:)")
   @inlinable @_disfavoredOverload public mutating func merge<Bytes>(contiguousBytes bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
             try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
         }
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, message: "Please conform your Bytes type to `SwiftProtobufContiguousBytes` instead of `Foundation.ContiguousBytes`.")
   @inlinable @_disfavoredOverload public mutating func merge<Bytes>(serializedBytes bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
             try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
         }
     }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @inlinable public mutating func merge(serializedData data: Foundation.Data, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
         try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
     }
+  #endif
   public func serializedData(partial: Swift.Bool = false) throws -> Foundation.Data
   public func serializedData(partial: Swift.Bool = false, options: WalletCoreSwiftProtobuf.BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Foundation.Data
 }
@@ -3186,13 +3368,19 @@ extension WalletCoreSwiftProtobuf.Message {
   public func jsonString(options: WalletCoreSwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Swift.String
   public func jsonUTF8Bytes<Bytes>(options: WalletCoreSwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes where Bytes : WalletCoreSwiftProtobuf.SwiftProtobufContiguousBytes
   public init(jsonString: Swift.String, options: WalletCoreSwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(jsonString: Swift.String, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, options: WalletCoreSwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
+  #endif
   public init<Bytes>(jsonUTF8Bytes: Bytes, options: WalletCoreSwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws where Bytes : WalletCoreSwiftProtobuf.SwiftProtobufContiguousBytes
+  #if compiler(>=5.3) && $NonescapableTypes
   public init<Bytes>(jsonUTF8Bytes: Bytes, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, options: WalletCoreSwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws where Bytes : WalletCoreSwiftProtobuf.SwiftProtobufContiguousBytes
+  #endif
 }
 extension WalletCoreSwiftProtobuf.Message {
   public init(jsonUTF8Data: Foundation.Data, options: WalletCoreSwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(jsonUTF8Data: Foundation.Data, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil, options: WalletCoreSwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
+  #endif
   public func jsonUTF8Data(options: WalletCoreSwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Foundation.Data
 }
 extension WalletCoreSwiftProtobuf.Message {
@@ -3211,21 +3399,29 @@ extension WalletCoreSwiftProtobuf.Message {
 extension WalletCoreSwiftProtobuf.Message {
   public func textFormatString() -> Swift.String
   public func textFormatString(options: WalletCoreSwiftProtobuf.TextFormatEncodingOptions) -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(textFormatString: Swift.String, extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil) throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(textFormatString: Swift.String, options: WalletCoreSwiftProtobuf.TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any WalletCoreSwiftProtobuf.ExtensionMap)? = nil) throws
+  #endif
 }
 @preconcurrency public protocol AnyMessageExtension : Swift.Sendable {
   var fieldNumber: Swift.Int { get }
   var fieldName: Swift.String { get }
   var messageType: any WalletCoreSwiftProtobuf.Message.Type { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   func _protobuf_newField<D>(decoder: inout D) throws -> (any WalletCoreSwiftProtobuf.AnyExtensionField)? where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
 }
 final public class MessageExtension<FieldType, MessageType> : WalletCoreSwiftProtobuf.AnyMessageExtension where FieldType : WalletCoreSwiftProtobuf.ExtensionField, MessageType : WalletCoreSwiftProtobuf.Message {
   final public let fieldNumber: Swift.Int
   final public let fieldName: Swift.String
   final public let messageType: any WalletCoreSwiftProtobuf.Message.Type
   public init(_protobuf_fieldNumber: Swift.Int, fieldName: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func _protobuf_newField<D>(decoder: inout D) throws -> (any WalletCoreSwiftProtobuf.AnyExtensionField)? where D : WalletCoreSwiftProtobuf.Decoder
+  #endif
   @objc deinit
 }
 public struct _NameMap : Swift.ExpressibleByDictionaryLiteral {
@@ -3279,10 +3475,14 @@ public struct SimpleExtensionMap : WalletCoreSwiftProtobuf.ExtensionMap, Swift.E
   public init()
   public init(arrayLiteral: any WalletCoreSwiftProtobuf.AnyMessageExtension...)
   public init(_ others: WalletCoreSwiftProtobuf.SimpleExtensionMap...)
+  #if compiler(>=5.3) && $NonescapableTypes
   public subscript(messageType: any WalletCoreSwiftProtobuf.Message.Type, fieldNumber: Swift.Int) -> (any WalletCoreSwiftProtobuf.AnyMessageExtension)? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func fieldNumberForProto(messageType: any WalletCoreSwiftProtobuf.Message.Type, protoFieldName: Swift.String) -> Swift.Int?
+  #endif
   public mutating func insert(_ newValue: any WalletCoreSwiftProtobuf.AnyMessageExtension)
   public mutating func insert(contentsOf: [any WalletCoreSwiftProtobuf.AnyMessageExtension])
   public mutating func formUnion(_ other: WalletCoreSwiftProtobuf.SimpleExtensionMap)
@@ -3314,7 +3514,9 @@ public enum Google_Protobuf_NullValue : WalletCoreSwiftProtobuf.Enum, Swift.Case
   case nullValue
   case UNRECOGNIZED(Swift.Int)
   public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -3537,7 +3739,9 @@ public enum Google_Protobuf_Syntax : WalletCoreSwiftProtobuf.Enum, Swift.CaseIte
   case editions
   case UNRECOGNIZED(Swift.Int)
   public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -3597,7 +3801,9 @@ public struct Google_Protobuf_Field : Swift.Sendable {
     case typeSint64
     case UNRECOGNIZED(Swift.Int)
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -3612,7 +3818,9 @@ public struct Google_Protobuf_Field : Swift.Sendable {
     case repeated
     case UNRECOGNIZED(Swift.Int)
     public init()
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public var rawValue: Swift.Int {
       get
     }
