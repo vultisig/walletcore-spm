@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
-// swift-module-flags: -target arm64-apple-macos14.5 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name WalletCore
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-macos14.5 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name WalletCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Foundation
 import Swift
 @_exported import WalletCore
@@ -10,25 +10,15 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public struct AES {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func encryptCBC(key: Foundation.Data, data: Foundation.Data, iv: Foundation.Data, mode: WalletCore.AESPaddingMode) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decryptCBC(key: Foundation.Data, data: Foundation.Data, iv: Foundation.Data, mode: WalletCore.AESPaddingMode) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func encryptCTR(key: Foundation.Data, data: Foundation.Data, iv: Foundation.Data) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decryptCTR(key: Foundation.Data, data: Foundation.Data, iv: Foundation.Data) -> Foundation.Data?
-  #endif
 }
 public enum AESPaddingMode : Swift.UInt32, Swift.CaseIterable {
   case zero
   case pkcs7
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.AESPaddingMode]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.AESPaddingMode] {
@@ -94,6 +84,8 @@ public struct TW_Aeternity_Proto_SigningInput {
 public struct TW_Aeternity_Proto_SigningOutput {
   public var encoded: Swift.String
   public var signature: Swift.String
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -285,15 +277,9 @@ extension WalletCore.TW_Algorand_Proto_SigningOutput : WalletCoreSwiftProtobuf.M
   final public var data: Foundation.Data {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String, coin: WalletCore.CoinType)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String, coin: WalletCore.CoinType, hrp: Swift.String)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String, coin: WalletCore.CoinType, ss58Prefix: Swift.UInt32)
-  #endif
   public init(publicKey: WalletCore.PublicKey, coin: WalletCore.CoinType)
   public init(publicKey: WalletCore.PublicKey, coin: WalletCore.CoinType, derivation: WalletCore.Derivation)
   public init(publicKey: WalletCore.PublicKey, coin: WalletCore.CoinType, hrp: Swift.String)
@@ -719,9 +705,7 @@ extension WalletCore.TW_Aptos_Proto_SigningOutput : WalletCoreSwiftProtobuf.Mess
   }
 }
 public struct AsnParser {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func ecdsaSignatureFromDer(encoded: Foundation.Data) -> Foundation.Data?
-  #endif
 }
 public typealias BabylonStakingPublicKeySignature = WalletCore.TW_BabylonStaking_Proto_PublicKeySignature
 public typealias BabylonStakingStakingInfo = WalletCore.TW_BabylonStaking_Proto_StakingInfo
@@ -990,9 +974,7 @@ public enum TW_Barz_Proto_FacetCutAction : WalletCoreSwiftProtobuf.Enum {
   case remove
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -1062,75 +1044,42 @@ extension WalletCore.TW_Barz_Proto_DiamondCutInput : WalletCoreSwiftProtobuf.Mes
   }
 }
 @_hasMissingDesignatedInitializers final public class Barz {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getInitCode(factory: Swift.String, publicKey: WalletCore.PublicKey, verificationFacet: Swift.String, salt: Swift.Int32) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getFormattedSignature(signature: Foundation.Data, challenge: Foundation.Data, authenticatorData: Foundation.Data, clientDataJson: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getPrefixedMsgHash(msgHash: Foundation.Data, barzAddress: Swift.String, chainId: Swift.Int32) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getDiamondCutCode(input: Foundation.Data) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getCounterfactualAddress(input: Foundation.Data) -> Swift.String?
-  #endif
   @objc deinit
 }
 public struct Base32 {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeWithAlphabet(string: Swift.String, alphabet: Swift.String?) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decode(string: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func encodeWithAlphabet(data: Foundation.Data, alphabet: Swift.String?) -> Swift.String
-  #endif
   public static func encode(data: Foundation.Data) -> Swift.String
 }
 public struct Base58 {
   public static func encode(data: Foundation.Data) -> Swift.String
   public static func encodeNoCheck(data: Foundation.Data) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decode(string: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeNoCheck(string: Swift.String) -> Foundation.Data?
-  #endif
 }
 public struct Base64 {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decode(string: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeUrl(string: Swift.String) -> Foundation.Data?
-  #endif
   public static func encode(data: Foundation.Data) -> Swift.String
   public static func encodeUrl(data: Foundation.Data) -> Swift.String
 }
 public struct Bech32 {
   public static func encode(hrp: Swift.String, data: Foundation.Data) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decode(string: Swift.String) -> Foundation.Data?
-  #endif
   public static func encodeM(hrp: Swift.String, data: Foundation.Data) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeM(string: Swift.String) -> Foundation.Data?
-  #endif
 }
 public typealias BinanceTransaction = WalletCore.TW_Binance_Proto_Transaction
 public typealias BinanceSignature = WalletCore.TW_Binance_Proto_Signature
 public typealias BinanceTradeOrder = WalletCore.TW_Binance_Proto_TradeOrder
 public typealias BinanceCancelTradeOrder = WalletCore.TW_Binance_Proto_CancelTradeOrder
 public typealias BinanceSendOrder = WalletCore.TW_Binance_Proto_SendOrder
-public typealias BinanceTokenIssueOrder = WalletCore.TW_Binance_Proto_TokenIssueOrder
-public typealias BinanceTokenMintOrder = WalletCore.TW_Binance_Proto_TokenMintOrder
-public typealias BinanceTokenBurnOrder = WalletCore.TW_Binance_Proto_TokenBurnOrder
-public typealias BinanceTokenFreezeOrder = WalletCore.TW_Binance_Proto_TokenFreezeOrder
-public typealias BinanceTokenUnfreezeOrder = WalletCore.TW_Binance_Proto_TokenUnfreezeOrder
 public typealias BinanceHTLTOrder = WalletCore.TW_Binance_Proto_HTLTOrder
 public typealias BinanceDepositHTLTOrder = WalletCore.TW_Binance_Proto_DepositHTLTOrder
 public typealias BinanceClaimHTLOrder = WalletCore.TW_Binance_Proto_ClaimHTLOrder
@@ -1203,43 +1152,6 @@ public struct TW_Binance_Proto_SendOrder {
     public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
     public init()
   }
-  public init()
-}
-public struct TW_Binance_Proto_TokenIssueOrder {
-  public var from: Foundation.Data
-  public var name: Swift.String
-  public var symbol: Swift.String
-  public var totalSupply: Swift.Int64
-  public var mintable: Swift.Bool
-  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
-  public init()
-}
-public struct TW_Binance_Proto_TokenMintOrder {
-  public var from: Foundation.Data
-  public var symbol: Swift.String
-  public var amount: Swift.Int64
-  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
-  public init()
-}
-public struct TW_Binance_Proto_TokenBurnOrder {
-  public var from: Foundation.Data
-  public var symbol: Swift.String
-  public var amount: Swift.Int64
-  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
-  public init()
-}
-public struct TW_Binance_Proto_TokenFreezeOrder {
-  public var from: Foundation.Data
-  public var symbol: Swift.String
-  public var amount: Swift.Int64
-  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
-  public init()
-}
-public struct TW_Binance_Proto_TokenUnfreezeOrder {
-  public var from: Foundation.Data
-  public var symbol: Swift.String
-  public var amount: Swift.Int64
-  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
 public struct TW_Binance_Proto_HTLTOrder {
@@ -1396,14 +1308,6 @@ public struct TW_Binance_Proto_SigningInput {
     get
     set
   }
-  public var freezeOrder: WalletCore.TW_Binance_Proto_TokenFreezeOrder {
-    get
-    set
-  }
-  public var unfreezeOrder: WalletCore.TW_Binance_Proto_TokenUnfreezeOrder {
-    get
-    set
-  }
   public var htltOrder: WalletCore.TW_Binance_Proto_HTLTOrder {
     get
     set
@@ -1417,18 +1321,6 @@ public struct TW_Binance_Proto_SigningInput {
     set
   }
   public var refundHtltOrder: WalletCore.TW_Binance_Proto_RefundHTLTOrder {
-    get
-    set
-  }
-  public var issueOrder: WalletCore.TW_Binance_Proto_TokenIssueOrder {
-    get
-    set
-  }
-  public var mintOrder: WalletCore.TW_Binance_Proto_TokenMintOrder {
-    get
-    set
-  }
-  public var burnOrder: WalletCore.TW_Binance_Proto_TokenBurnOrder {
     get
     set
   }
@@ -1469,15 +1361,10 @@ public struct TW_Binance_Proto_SigningInput {
     case tradeOrder(WalletCore.TW_Binance_Proto_TradeOrder)
     case cancelTradeOrder(WalletCore.TW_Binance_Proto_CancelTradeOrder)
     case sendOrder(WalletCore.TW_Binance_Proto_SendOrder)
-    case freezeOrder(WalletCore.TW_Binance_Proto_TokenFreezeOrder)
-    case unfreezeOrder(WalletCore.TW_Binance_Proto_TokenUnfreezeOrder)
     case htltOrder(WalletCore.TW_Binance_Proto_HTLTOrder)
     case depositHtltOrder(WalletCore.TW_Binance_Proto_DepositHTLTOrder)
     case claimHtltOrder(WalletCore.TW_Binance_Proto_ClaimHTLOrder)
     case refundHtltOrder(WalletCore.TW_Binance_Proto_RefundHTLTOrder)
-    case issueOrder(WalletCore.TW_Binance_Proto_TokenIssueOrder)
-    case mintOrder(WalletCore.TW_Binance_Proto_TokenMintOrder)
-    case burnOrder(WalletCore.TW_Binance_Proto_TokenBurnOrder)
     case transferOutOrder(WalletCore.TW_Binance_Proto_TransferOut)
     case sideDelegateOrder(WalletCore.TW_Binance_Proto_SideChainDelegate)
     case sideRedelegateOrder(WalletCore.TW_Binance_Proto_SideChainRedelegate)
@@ -1575,56 +1462,6 @@ extension WalletCore.TW_Binance_Proto_SendOrder.Output : WalletCoreSwiftProtobuf
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
   public static func == (lhs: WalletCore.TW_Binance_Proto_SendOrder.Output, rhs: WalletCore.TW_Binance_Proto_SendOrder.Output) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension WalletCore.TW_Binance_Proto_TokenIssueOrder : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: Swift.String
-  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
-  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
-  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Binance_Proto_TokenIssueOrder, rhs: WalletCore.TW_Binance_Proto_TokenIssueOrder) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension WalletCore.TW_Binance_Proto_TokenMintOrder : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: Swift.String
-  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
-  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
-  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Binance_Proto_TokenMintOrder, rhs: WalletCore.TW_Binance_Proto_TokenMintOrder) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension WalletCore.TW_Binance_Proto_TokenBurnOrder : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: Swift.String
-  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
-  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
-  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Binance_Proto_TokenBurnOrder, rhs: WalletCore.TW_Binance_Proto_TokenBurnOrder) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension WalletCore.TW_Binance_Proto_TokenFreezeOrder : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: Swift.String
-  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
-  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
-  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Binance_Proto_TokenFreezeOrder, rhs: WalletCore.TW_Binance_Proto_TokenFreezeOrder) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension WalletCore.TW_Binance_Proto_TokenUnfreezeOrder : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: Swift.String
-  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
-  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
-  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Binance_Proto_TokenUnfreezeOrder, rhs: WalletCore.TW_Binance_Proto_TokenUnfreezeOrder) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -1791,9 +1628,7 @@ public enum TW_Bitcoin_Proto_TransactionVariant : WalletCoreSwiftProtobuf.Enum {
   case nftinscription
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -1959,12 +1794,10 @@ public struct TW_Bitcoin_Proto_SigningInput {
     get
   }
   public mutating func clearSigningV2()
-  #if compiler(>=5.3) && $NonescapableTypes
   public var dustPolicy: WalletCore.TW_Bitcoin_Proto_SigningInput.OneOf_DustPolicy? {
     get
     set
   }
-  #endif
   public var fixedDustThreshold: Swift.Int64 {
     get
     set
@@ -2236,15 +2069,9 @@ extension WalletCore.BitcoinAddress : Swift.Equatable {
   final public var keyhash: Foundation.Data {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(data: Foundation.Data)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(publicKey: WalletCore.PublicKey, prefix: Swift.UInt8)
-  #endif
   @objc deinit
 }
 public struct BitcoinMessageSigner {
@@ -2286,21 +2113,11 @@ public struct BitcoinMessageSigner {
   public init(data: Foundation.Data)
   public init(script: WalletCore.BitcoinScript)
   @objc deinit
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func matchPayToPubkey() -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func matchPayToPubkeyHash() -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func matchPayToScriptHash() -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func matchPayToWitnessPublicKeyHash() -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func matchPayToWitnessScriptHash() -> Foundation.Data?
-  #endif
   final public func encode() -> Foundation.Data
 }
 extension WalletCore.BitcoinSigHashType {
@@ -2313,9 +2130,7 @@ public enum BitcoinSigHashType : Swift.UInt32, Swift.CaseIterable {
   case single
   case fork
   case forkBTG
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.BitcoinSigHashType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.BitcoinSigHashType] {
@@ -2346,9 +2161,7 @@ public enum TW_BitcoinV2_Proto_InputSelector : WalletCoreSwiftProtobuf.Enum {
   case useAll
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -2364,9 +2177,7 @@ public enum TW_BitcoinV2_Proto_TransactionVersion : WalletCoreSwiftProtobuf.Enum
   case v2
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -2692,23 +2503,23 @@ public struct TW_BitcoinV2_Proto_TransactionBuilder {
     get
   }
   public mutating func clearMaxAmountOutput()
-  #if compiler(>=5.3) && $NonescapableTypes
   public var dustPolicy: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_DustPolicy? {
     get
     set
   }
-  #endif
   public var fixedDustThreshold: Swift.Int64 {
     get
     set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public var chainSpecific: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_ChainSpecific? {
     get
     set
   }
-  #endif
   public var zcashExtraData: WalletCore.TW_Zcash_Proto_TransactionBuilderExtraData {
+    get
+    set
+  }
+  public var decredExtraData: WalletCore.TW_DecredV2_Proto_TransactionBuilderExtraData {
     get
     set
   }
@@ -2719,6 +2530,7 @@ public struct TW_BitcoinV2_Proto_TransactionBuilder {
   }
   public enum OneOf_ChainSpecific : Swift.Equatable {
     case zcashExtraData(WalletCore.TW_Zcash_Proto_TransactionBuilderExtraData)
+    case decredExtraData(WalletCore.TW_DecredV2_Proto_TransactionBuilderExtraData)
     public static func == (a: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_ChainSpecific, b: WalletCore.TW_BitcoinV2_Proto_TransactionBuilder.OneOf_ChainSpecific) -> Swift.Bool
   }
   public init()
@@ -2782,9 +2594,7 @@ public struct TW_BitcoinV2_Proto_PreSigningOutput {
     case taproot
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -3072,61 +2882,169 @@ extension WalletCore.TW_BitcoinV2_Proto_SigningOutput : WalletCoreSwiftProtobuf.
     get
   }
 }
-public typealias BizExecuteWithPasskeySessionInput = WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput
-public struct TW_Biz_Proto_ExecuteWithPasskeySessionInput {
-  public var executions: [WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput.Execution]
-  public var validAfter: Swift.UInt64
-  public var validUntil: Swift.UInt64
-  public var passkeySignature: Foundation.Data
+public typealias BizEncodingHashParams = WalletCore.TW_Biz_Proto_EncodingHashParams
+public typealias BizExecution = WalletCore.TW_Biz_Proto_Execution
+public typealias BizExecuteWithSignatureInput = WalletCore.TW_Biz_Proto_ExecuteWithSignatureInput
+public struct TW_Biz_Proto_EncodingHashParams {
+  public var chainID: Foundation.Data
+  public var codeAddress: Swift.String
+  public var codeName: Swift.String
+  public var codeVersion: Swift.String
+  public var typeHash: Swift.String
+  public var domainSeparatorHash: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
-  public struct Execution {
-    public var address: Swift.String
-    public var amount: Foundation.Data
-    public var payload: Foundation.Data
-    public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
-    public init()
-  }
   public init()
 }
-extension WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+public struct TW_Biz_Proto_Execution {
+  public var address: Swift.String
+  public var amount: Foundation.Data
+  public var payload: Foundation.Data
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_Biz_Proto_ExecuteWithSignatureInput {
+  public var executions: [WalletCore.TW_Biz_Proto_Execution]
+  public var privateKey: Foundation.Data
+  public var nonce: Foundation.Data
+  public var encodingHashParams: WalletCore.TW_Biz_Proto_EncodingHashParams {
+    get
+    set
+  }
+  public var hasEncodingHashParams: Swift.Bool {
+    get
+  }
+  public mutating func clearEncodingHashParams()
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+extension WalletCore.TW_Biz_Proto_EncodingHashParams : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput, rhs: WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput) -> Swift.Bool
+  public static func == (lhs: WalletCore.TW_Biz_Proto_EncodingHashParams, rhs: WalletCore.TW_Biz_Proto_EncodingHashParams) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
 }
-extension WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput.Execution : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+extension WalletCore.TW_Biz_Proto_Execution : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
-  public static func == (lhs: WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput.Execution, rhs: WalletCore.TW_Biz_Proto_ExecuteWithPasskeySessionInput.Execution) -> Swift.Bool
+  public static func == (lhs: WalletCore.TW_Biz_Proto_Execution, rhs: WalletCore.TW_Biz_Proto_Execution) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Biz_Proto_ExecuteWithSignatureInput : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Biz_Proto_ExecuteWithSignatureInput, rhs: WalletCore.TW_Biz_Proto_ExecuteWithSignatureInput) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
 }
 @_hasMissingDesignatedInitializers final public class Biz {
-  #if compiler(>=5.3) && $NonescapableTypes
+  public static func signExecuteWithSignatureCall(input: Foundation.Data) -> Foundation.Data?
   public static func getEncodedHash(chainId: Foundation.Data, codeAddress: Swift.String, codeName: Swift.String, codeVersion: Swift.String, typeHash: Swift.String, domainSeparatorHash: Swift.String, sender: Swift.String, userOpHash: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getSignedHash(hash: Swift.String, privateKey: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
+  @objc deinit
+}
+public typealias BizPasskeySessionEncodingHashParams = WalletCore.TW_BizPasskeySession_Proto_EncodingHashParams
+public typealias BizPasskeySessionExecution = WalletCore.TW_BizPasskeySession_Proto_Execution
+public typealias BizPasskeySessionExecuteWithPasskeySessionInput = WalletCore.TW_BizPasskeySession_Proto_ExecuteWithPasskeySessionInput
+public typealias BizPasskeySessionExecuteWithSignatureInput = WalletCore.TW_BizPasskeySession_Proto_ExecuteWithSignatureInput
+public struct TW_BizPasskeySession_Proto_EncodingHashParams {
+  public var chainID: Foundation.Data
+  public var codeAddress: Swift.String
+  public var codeName: Swift.String
+  public var codeVersion: Swift.String
+  public var typeHash: Swift.String
+  public var domainSeparatorHash: Swift.String
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_BizPasskeySession_Proto_Execution {
+  public var address: Swift.String
+  public var amount: Foundation.Data
+  public var payload: Foundation.Data
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_BizPasskeySession_Proto_ExecuteWithPasskeySessionInput {
+  public var executions: [WalletCore.TW_BizPasskeySession_Proto_Execution]
+  public var validAfter: Swift.UInt64
+  public var validUntil: Swift.UInt64
+  public var passkeySignature: Foundation.Data
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_BizPasskeySession_Proto_ExecuteWithSignatureInput {
+  public var executions: [WalletCore.TW_BizPasskeySession_Proto_Execution]
+  public var privateKey: Foundation.Data
+  public var nonce: Foundation.Data
+  public var validAfter: Swift.UInt64
+  public var validUntil: Swift.UInt64
+  public var encodingHashParams: WalletCore.TW_BizPasskeySession_Proto_EncodingHashParams {
+    get
+    set
+  }
+  public var hasEncodingHashParams: Swift.Bool {
+    get
+  }
+  public mutating func clearEncodingHashParams()
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+extension WalletCore.TW_BizPasskeySession_Proto_EncodingHashParams : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_BizPasskeySession_Proto_EncodingHashParams, rhs: WalletCore.TW_BizPasskeySession_Proto_EncodingHashParams) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_BizPasskeySession_Proto_Execution : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_BizPasskeySession_Proto_Execution, rhs: WalletCore.TW_BizPasskeySession_Proto_Execution) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_BizPasskeySession_Proto_ExecuteWithPasskeySessionInput : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_BizPasskeySession_Proto_ExecuteWithPasskeySessionInput, rhs: WalletCore.TW_BizPasskeySession_Proto_ExecuteWithPasskeySessionInput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_BizPasskeySession_Proto_ExecuteWithSignatureInput : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_BizPasskeySession_Proto_ExecuteWithSignatureInput, rhs: WalletCore.TW_BizPasskeySession_Proto_ExecuteWithSignatureInput) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class BizPasskeySession {
   public static func encodeRegisterSessionCall(sessionPasskeyPublicKey: WalletCore.PublicKey, validUntilTimestamp: Foundation.Data) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func encodeRemoveSessionCall(sessionPasskeyPublicKey: WalletCore.PublicKey) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func encodePasskeySessionNonce(nonce: Foundation.Data) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func encodeExecuteWithPasskeySessionCall(input: Foundation.Data) -> Foundation.Data?
-  #endif
+  public static func signExecuteWithSignatureCall(input: Foundation.Data) -> Foundation.Data?
   @objc deinit
 }
 public enum Blockchain : Swift.UInt32, Swift.CaseIterable {
@@ -3188,9 +3106,7 @@ public enum Blockchain : Swift.UInt32, Swift.CaseIterable {
   case pactus
   case komodo
   case polymesh
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.Blockchain]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.Blockchain] {
@@ -3296,9 +3212,7 @@ public struct TW_Cardano_Proto_VoteDelegation {
     case drepNoConfidence
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -3567,16 +3481,12 @@ extension WalletCore.TW_Cardano_Proto_SigningOutput : WalletCoreSwiftProtobuf.Me
 }
 public struct Cardano {
   public static func minAdaAmount(tokenBundle: Foundation.Data) -> Swift.UInt64
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func outputMinAdaAmount(toAddress: Swift.String, tokenBundle: Foundation.Data, coinsPerUtxoByte: Swift.String) -> Swift.String?
-  #endif
   public static func getStakingAddress(baseAddress: Swift.String) -> Swift.String
   public static func getByronAddress(publicKey: WalletCore.PublicKey) -> Swift.String
 }
 extension WalletCore.CoinType {
-  #if compiler(>=5.3) && $NonescapableTypes
   public func address(string: Swift.String) -> WalletCore.AnyAddress?
-  #endif
 }
 extension WalletCore.CoinType {
   public var blockchain: WalletCore.Blockchain {
@@ -3788,9 +3698,11 @@ public enum CoinType : Swift.UInt32, Swift.CaseIterable {
   case sonic
   case polymesh
   case plasma
-  #if compiler(>=5.3) && $NonescapableTypes
+  case monad
+  case megaETH
+  case seiEVM
+  case hyperEVM
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.CoinType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.CoinType] {
@@ -3837,11 +3749,10 @@ public enum TW_Common_Proto_SigningError : WalletCoreSwiftProtobuf.Enum {
   case errorInvalidRequestedTokenAmount
   case errorNotSupported
   case errorDustAmountRequested
+  case errorTxHashMismatch
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -3873,9 +3784,7 @@ public enum TW_Cosmos_Proto_BroadcastMode : WalletCoreSwiftProtobuf.Enum {
   case async
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -3890,9 +3799,7 @@ public enum TW_Cosmos_Proto_SigningMode : WalletCoreSwiftProtobuf.Enum {
   case protobuf
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -3908,9 +3815,7 @@ public enum TW_Cosmos_Proto_TxHasher : WalletCoreSwiftProtobuf.Enum {
   case keccak256
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -3925,9 +3830,7 @@ public enum TW_Cosmos_Proto_SignerPublicKeyType : WalletCoreSwiftProtobuf.Enum {
   case secp256K1Extended
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -4107,9 +4010,7 @@ public struct TW_Cosmos_Proto_Message {
     case redelegate
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -4123,9 +4024,7 @@ public struct TW_Cosmos_Proto_Message {
     case noWithVeto
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -4806,18 +4705,14 @@ extension WalletCore.TW_Cosmos_Proto_SigningOutput : WalletCoreSwiftProtobuf.Mes
 }
 public struct CryptoBox {
   public static func encryptEasy(mySecret: WalletCore.CryptoBoxSecretKey, otherPubkey: WalletCore.CryptoBoxPublicKey, message: Foundation.Data) -> Foundation.Data
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decryptEasy(mySecret: WalletCore.CryptoBoxSecretKey, otherPubkey: WalletCore.CryptoBoxPublicKey, encrypted: Foundation.Data) -> Foundation.Data?
-  #endif
 }
 @_hasMissingDesignatedInitializers final public class CryptoBoxPublicKey {
   public static func isValid(data: Foundation.Data) -> Swift.Bool
   final public var data: Foundation.Data {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(data: Foundation.Data)
-  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class CryptoBoxSecretKey {
@@ -4826,9 +4721,7 @@ public struct CryptoBox {
     get
   }
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(data: Foundation.Data)
-  #endif
   @objc deinit
   final public func getPublicKey() -> WalletCore.CryptoBoxPublicKey
 }
@@ -4843,9 +4736,7 @@ public enum Curve : Swift.UInt32, Swift.CaseIterable, Swift.CustomStringConverti
   public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.Curve]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.Curve] {
@@ -4856,9 +4747,7 @@ public enum Curve : Swift.UInt32, Swift.CaseIterable, Swift.CustomStringConverti
   }
 }
 extension Foundation.Data {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(hexString: Swift.String)
-  #endif
   public static func reverse(hexString: Swift.String) -> Foundation.Data
   public var hexString: Swift.String {
     get
@@ -4866,9 +4755,7 @@ extension Foundation.Data {
 }
 extension Swift.KeyedDecodingContainerProtocol {
   public func decodeHexString(forKey key: Self.Key) throws -> Foundation.Data
-  #if compiler(>=5.3) && $NonescapableTypes
   public func decodeHexStringIfPresent(forKey key: Self.Key) throws -> Foundation.Data?
-  #endif
 }
 @_hasMissingDesignatedInitializers final public class DataVector {
   final public var size: Swift.Int {
@@ -4878,9 +4765,7 @@ extension Swift.KeyedDecodingContainerProtocol {
   public init(data: Foundation.Data)
   @objc deinit
   final public func add(data: Foundation.Data)
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func get(index: Swift.Int) -> Foundation.Data?
-  #endif
 }
 public typealias DecredTransaction = WalletCore.TW_Decred_Proto_Transaction
 public typealias DecredTransactionInput = WalletCore.TW_Decred_Proto_TransactionInput
@@ -5000,6 +4885,7 @@ public typealias DecredV2OutPoint = WalletCore.TW_DecredV2_Proto_OutPoint
 public typealias DecredV2Transaction = WalletCore.TW_DecredV2_Proto_Transaction
 public typealias DecredV2TransactionInput = WalletCore.TW_DecredV2_Proto_TransactionInput
 public typealias DecredV2TransactionOutput = WalletCore.TW_DecredV2_Proto_TransactionOutput
+public typealias DecredV2TransactionBuilderExtraData = WalletCore.TW_DecredV2_Proto_TransactionBuilderExtraData
 public struct TW_DecredV2_Proto_OutPoint {
   public var hash: Foundation.Data
   public var vout: Swift.UInt32
@@ -5038,6 +4924,11 @@ public struct TW_DecredV2_Proto_TransactionOutput {
   public var value: Swift.Int64
   public var version: Swift.UInt32
   public var script: Foundation.Data
+  public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
+  public init()
+}
+public struct TW_DecredV2_Proto_TransactionBuilderExtraData {
+  public var expiryHeight: Swift.UInt32
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -5081,6 +4972,16 @@ extension WalletCore.TW_DecredV2_Proto_TransactionOutput : WalletCoreSwiftProtob
     get
   }
 }
+extension WalletCore.TW_DecredV2_Proto_TransactionBuilderExtraData : WalletCoreSwiftProtobuf.Message, WalletCoreSwiftProtobuf._MessageImplementationBase, WalletCoreSwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: WalletCoreSwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : WalletCoreSwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : WalletCoreSwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_DecredV2_Proto_TransactionBuilderExtraData, rhs: WalletCore.TW_DecredV2_Proto_TransactionBuilderExtraData) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public enum Derivation : Swift.UInt32, Swift.CaseIterable {
   case `default`
   case custom
@@ -5093,9 +4994,8 @@ public enum Derivation : Swift.UInt32, Swift.CaseIterable {
   case bitcoinTaproot
   case pactusMainnet
   case pactusTestnet
-  #if compiler(>=5.3) && $NonescapableTypes
+  case smartChainStableAccount
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.Derivation]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.Derivation] {
@@ -5115,14 +5015,10 @@ extension WalletCore.DerivationPath : Swift.Equatable, Swift.Hashable, Swift.Cus
     get
   }
   convenience public init(purpose: WalletCore.Purpose, coin: Swift.UInt32)
-  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init?(_ string: Swift.String)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public subscript(index: Swift.Int) -> WalletCore.DerivationPathIndex? {
     get
   }
-  #endif
   final public func hash(into hasher: inout Swift.Hasher)
   final public var hashValue: Swift.Int {
     get
@@ -5164,13 +5060,9 @@ extension WalletCore.DerivationPathIndex : Swift.Codable {
     get
   }
   public init(purpose: WalletCore.Purpose, coin: Swift.UInt32, account: Swift.UInt32, change: Swift.UInt32, address: Swift.UInt32)
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   @objc deinit
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func indexAt(index: Swift.UInt32) -> WalletCore.DerivationPathIndex?
-  #endif
   final public func indicesCount() -> Swift.UInt32
 }
 @_hasMissingDesignatedInitializers final public class DerivationPathIndex {
@@ -5197,9 +5089,7 @@ public enum TW_EOS_Proto_KeyType : WalletCoreSwiftProtobuf.Enum {
   case modernr1
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -5278,12 +5168,8 @@ extension WalletCore.TW_EOS_Proto_SigningOutput : WalletCoreSwiftProtobuf.Messag
   }
 }
 @_hasMissingDesignatedInitializers final public class Eip7702 {
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func signAuthorization(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data, privateKey: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getAuthorizationHash(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data) -> Foundation.Data?
-  #endif
+  public static func signAuthorization(chainId: Foundation.Data, contractAddress: Swift.String, nonce: Foundation.Data, privateKey: Swift.String) -> Swift.String?
   @objc deinit
 }
 public typealias EthereumTransaction = WalletCore.TW_Ethereum_Proto_Transaction
@@ -5309,9 +5195,7 @@ public enum TW_Ethereum_Proto_TransactionMode : WalletCoreSwiftProtobuf.Enum {
   case setCode
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -5327,9 +5211,7 @@ public enum TW_Ethereum_Proto_SCWalletType : WalletCoreSwiftProtobuf.Enum {
   case biz
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -5348,9 +5230,7 @@ public enum TW_Ethereum_Proto_MessageType : WalletCoreSwiftProtobuf.Enum {
   case eip7702Authorization
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -5360,12 +5240,10 @@ extension WalletCore.TW_Ethereum_Proto_MessageType : Swift.CaseIterable {
   public typealias AllCases = [WalletCore.TW_Ethereum_Proto_MessageType]
 }
 public struct TW_Ethereum_Proto_Transaction {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var transactionOneof: WalletCore.TW_Ethereum_Proto_Transaction.OneOf_TransactionOneof? {
     get
     set
   }
-  #endif
   public var transfer: WalletCore.TW_Ethereum_Proto_Transaction.Transfer {
     get
     set
@@ -5576,12 +5454,10 @@ public struct TW_Ethereum_Proto_SigningInput {
     get
   }
   public mutating func clearTransaction()
-  #if compiler(>=5.3) && $NonescapableTypes
   public var userOperationOneof: WalletCore.TW_Ethereum_Proto_SigningInput.OneOf_UserOperationOneof? {
     get
     set
   }
-  #endif
   public var userOperation: WalletCore.TW_Ethereum_Proto_UserOperation {
     get
     set
@@ -5876,18 +5752,10 @@ extension WalletCore.TW_Ethereum_Proto_MessageVerifyingInput : WalletCoreSwiftPr
   }
 }
 @_hasMissingDesignatedInitializers final public class Ethereum {
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func addressChecksummed(address: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func eip2645GetPath(ethAddress: Swift.String, layer: Swift.String, application: Swift.String, index: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func eip1014Create2Address(from: Swift.String, salt: Foundation.Data, initCodeHash: Foundation.Data) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func eip1967ProxyInitCode(logicAddress: Swift.String, data: Foundation.Data) -> Foundation.Data?
-  #endif
+  public static func addressChecksummed(address: Swift.String) -> Swift.String?
+  public static func eip2645GetPath(ethAddress: Swift.String, layer: Swift.String, application: Swift.String, index: Swift.String) -> Swift.String?
   @objc deinit
 }
 public typealias EthereumAbiBoolType = WalletCore.TW_EthereumAbi_Proto_BoolType
@@ -5931,9 +5799,7 @@ public enum TW_EthereumAbi_Proto_AbiError : WalletCoreSwiftProtobuf.Enum {
   case errorEmptyType
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -6015,12 +5881,10 @@ public struct TW_EthereumAbi_Proto_Param {
   public init()
 }
 public struct TW_EthereumAbi_Proto_ParamType {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var param: WalletCore.TW_EthereumAbi_Proto_ParamType.OneOf_Param? {
     get
     set
   }
-  #endif
   public var boolean: WalletCore.TW_EthereumAbi_Proto_BoolType {
     get
     set
@@ -6506,13 +6370,9 @@ public struct EthereumAbi {
   public static func encodeFunction(coin: WalletCore.CoinType, input: Foundation.Data) -> Foundation.Data
   public static func encode(fn: WalletCore.EthereumAbiFunction) -> Foundation.Data
   public static func decodeOutput(fn: WalletCore.EthereumAbiFunction, encoded: Foundation.Data) -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decodeCall(data: Foundation.Data, abi: Swift.String) -> Swift.String?
-  #endif
   public static func encodeTyped(messageJson: Swift.String) -> Foundation.Data
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getFunctionSignature(abi: Swift.String) -> Swift.String?
-  #endif
 }
 @_hasMissingDesignatedInitializers final public class EthereumAbiFunction {
   public init(name: Swift.String)
@@ -6624,14 +6484,17 @@ public enum EthereumChainID : Swift.UInt32, Swift.CaseIterable {
   case okc
   case thundertoken
   case cfxevm
+  case seievm
   case lightlink
   case merlin
+  case megaeth
   case mantle
   case bouncebit
   case gochain
   case zeneon
   case base
   case plasma
+  case monad
   case meter
   case celo
   case linea
@@ -6650,6 +6513,7 @@ public enum EthereumChainID : Swift.UInt32, Swift.CaseIterable {
   case zksync
   case heco
   case acalaevm
+  case hyperevm
   case metis
   case polygonzkevm
   case moonbeam
@@ -6666,9 +6530,7 @@ public enum EthereumChainID : Swift.UInt32, Swift.CaseIterable {
   case zetaevm
   case neon
   case aurora
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.EthereumChainID]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.EthereumChainID] {
@@ -6810,9 +6672,7 @@ public enum TW_Everscale_Proto_MessageBehavior : WalletCoreSwiftProtobuf.Enum {
   case sendAllBalance
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -6855,6 +6715,8 @@ public struct TW_Everscale_Proto_SigningInput {
 }
 public struct TW_Everscale_Proto_SigningOutput {
   public var encoded: Swift.String
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -7220,9 +7082,7 @@ extension WalletCore.TW_FIO_Proto_SigningOutput : WalletCoreSwiftProtobuf.Messag
   final public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   @objc deinit
 }
 public typealias FilecoinSigningInput = WalletCore.TW_Filecoin_Proto_SigningInput
@@ -7234,9 +7094,7 @@ public enum TW_Filecoin_Proto_DerivationType : WalletCoreSwiftProtobuf.Enum {
   case delegated
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -7296,9 +7154,7 @@ public struct FilecoinAddressConverter {
 public enum FilecoinAddressType : Swift.UInt32, Swift.CaseIterable {
   case `default`
   case delegated
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.FilecoinAddressType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.FilecoinAddressType] {
@@ -7311,9 +7167,7 @@ public enum FilecoinAddressType : Swift.UInt32, Swift.CaseIterable {
 public enum FiroAddressType : Swift.UInt32, Swift.CaseIterable {
   case `default`
   case exchange
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.FiroAddressType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.FiroAddressType] {
@@ -7337,9 +7191,7 @@ public enum TW_Greenfield_Proto_BroadcastMode : WalletCoreSwiftProtobuf.Enum {
   case async
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -7353,9 +7205,7 @@ public enum TW_Greenfield_Proto_EncodingMode : WalletCoreSwiftProtobuf.Enum {
   case protobuf
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -7369,9 +7219,7 @@ public enum TW_Greenfield_Proto_SigningMode : WalletCoreSwiftProtobuf.Enum {
   case eip712
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -7550,9 +7398,7 @@ extension WalletCore.TW_Greenfield_Proto_SigningOutput : WalletCoreSwiftProtobuf
   final public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   public init(publicKey: WalletCore.PublicKey, prefix: Swift.UInt8)
   @objc deinit
 }
@@ -7586,9 +7432,7 @@ public enum HDVersion : Swift.UInt32, Swift.CaseIterable {
   case dprv
   case dgub
   case dgpv
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.HDVersion]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.HDVersion] {
@@ -7599,9 +7443,7 @@ public enum HDVersion : Swift.UInt32, Swift.CaseIterable {
   }
 }
 @_hasMissingDesignatedInitializers final public class HDWallet {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getPublicKeyFromExtended(extended: Swift.String, coin: WalletCore.CoinType, derivationPath: Swift.String) -> WalletCore.PublicKey?
-  #endif
   final public var seed: Foundation.Data {
     get
   }
@@ -7611,18 +7453,10 @@ public enum HDVersion : Swift.UInt32, Swift.CaseIterable {
   final public var entropy: Foundation.Data {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(strength: Swift.Int32, passphrase: Swift.String)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(mnemonic: Swift.String, passphrase: Swift.String)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(mnemonic: Swift.String, passphrase: Swift.String, check: Swift.Bool)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(entropy: Foundation.Data, passphrase: Swift.String)
-  #endif
   @objc deinit
   final public func getMasterKey(curve: WalletCore.Curve) -> WalletCore.PrivateKey
   final public func getKeyForCoin(coin: WalletCore.CoinType) -> WalletCore.PrivateKey
@@ -7704,9 +7538,7 @@ public enum HRP : Swift.UInt32, Swift.CaseIterable, Swift.CustomStringConvertibl
   public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.HRP]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.HRP] {
@@ -7771,12 +7603,10 @@ public struct TW_Harmony_Proto_TransactionMessage {
   public init()
 }
 public struct TW_Harmony_Proto_StakingMessage {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var stakeMsg: WalletCore.TW_Harmony_Proto_StakingMessage.OneOf_StakeMsg? {
     get
     set
   }
-  #endif
   public var createValidatorMessage: WalletCore.TW_Harmony_Proto_DirectiveCreateValidator {
     get
     set
@@ -8168,6 +7998,8 @@ public struct TW_Hedera_Proto_SigningInput {
 }
 public struct TW_Hedera_Proto_SigningOutput {
   public var encoded: Foundation.Data
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -8246,9 +8078,7 @@ public enum TW_IOST_Proto_Algorithm : WalletCoreSwiftProtobuf.Enum {
   case ed25519
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -9005,11 +8835,10 @@ extension WalletCore.KeyStore {
     case invalidJSON
     case invalidKey
     case invalidPassword
-    #if compiler(>=5.3) && $NonescapableTypes
+    case storageFailed
     public var errorDescription: Swift.String? {
       get
     }
-    #endif
     public static func == (a: WalletCore.KeyStore.Error, b: WalletCore.KeyStore.Error) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
@@ -9064,9 +8893,7 @@ public enum TW_LiquidStaking_Proto_Coin : WalletCoreSwiftProtobuf.Enum {
   case eth
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -9084,9 +8911,7 @@ public enum TW_LiquidStaking_Proto_Blockchain : WalletCoreSwiftProtobuf.Enum {
   case aptos
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -9103,9 +8928,7 @@ public enum TW_LiquidStaking_Proto_Protocol : WalletCoreSwiftProtobuf.Enum {
   case lido
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -9124,9 +8947,7 @@ public enum TW_LiquidStaking_Proto_StatusCode : WalletCoreSwiftProtobuf.Enum {
   case errorOperationNotSupportedByProtocol
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -9226,12 +9047,10 @@ public struct TW_LiquidStaking_Proto_Output {
     get
   }
   public mutating func clearStatus()
-  #if compiler(>=5.3) && $NonescapableTypes
   public var signingInputOneof: WalletCore.TW_LiquidStaking_Proto_Output.OneOf_SigningInputOneof? {
     get
     set
   }
-  #endif
   public var ethereum: WalletCore.TW_Ethereum_Proto_SigningInput {
     get
     set
@@ -9339,13 +9158,9 @@ public struct LiquidStaking {
   public static func buildRequest(input: Foundation.Data) -> Foundation.Data
 }
 @_hasMissingDesignatedInitializers final public class MessageSigner {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func sign(coin: WalletCore.CoinType, input: Foundation.Data) -> Foundation.Data?
-  #endif
   public static func verify(coin: WalletCore.CoinType, input: Foundation.Data) -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func preImageHashes(coin: WalletCore.CoinType, input: Foundation.Data) -> Foundation.Data?
-  #endif
   @objc deinit
 }
 extension WalletCore.Mnemonic {
@@ -9916,9 +9731,7 @@ extension WalletCore.TW_NEAR_Proto_SigningOutput : WalletCoreSwiftProtobuf.Messa
   final public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   @objc deinit
 }
 public typealias NEOTransactionInput = WalletCore.TW_NEO_Proto_TransactionInput
@@ -10369,6 +10182,8 @@ public struct TW_Nebulas_Proto_SigningOutput {
   public var algorithm: Swift.UInt32
   public var signature: Foundation.Data
   public var raw: Swift.String
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -10593,12 +10408,10 @@ public struct TW_Nervos_Proto_SigningInput {
     get
   }
   public mutating func clearPlan()
-  #if compiler(>=5.3) && $NonescapableTypes
   public var operationOneof: WalletCore.TW_Nervos_Proto_SigningInput.OneOf_OperationOneof? {
     get
     set
   }
-  #endif
   public var nativeTransfer: WalletCore.TW_Nervos_Proto_NativeTransfer {
     get
     set
@@ -10817,9 +10630,7 @@ extension WalletCore.TW_Nervos_Proto_SigningOutput : WalletCoreSwiftProtobuf.Mes
   final public var args: Foundation.Data {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   @objc deinit
 }
 public typealias NimiqSigningInput = WalletCore.TW_Nimiq_Proto_SigningInput
@@ -10832,9 +10643,7 @@ public enum TW_Nimiq_Proto_NetworkId : WalletCoreSwiftProtobuf.Enum {
   case mainnetAlbatross
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -10855,6 +10664,8 @@ public struct TW_Nimiq_Proto_SigningInput {
 }
 public struct TW_Nimiq_Proto_SigningOutput {
   public var encoded: Foundation.Data
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -11043,12 +10854,8 @@ extension WalletCore.TW_Ontology_Proto_SigningOutput : WalletCoreSwiftProtobuf.M
   }
 }
 public struct PBKDF2 {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func hmacSha256(password: Foundation.Data, salt: Foundation.Data, iterations: Swift.UInt32, dkLen: Swift.UInt32) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func hmacSha512(password: Foundation.Data, salt: Foundation.Data, iterations: Swift.UInt32, dkLen: Swift.UInt32) -> Foundation.Data?
-  #endif
 }
 public typealias PactusTransactionMessage = WalletCore.TW_Pactus_Proto_TransactionMessage
 public typealias PactusTransferPayload = WalletCore.TW_Pactus_Proto_TransferPayload
@@ -11178,9 +10985,7 @@ public enum TW_Polkadot_Proto_RewardDestination : WalletCoreSwiftProtobuf.Enum {
   case controller
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -11586,12 +11391,14 @@ public struct TW_Polkadot_Proto_SigningInput {
     get
     set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
+  public var chargeNativeAsAssetTxPayment: Swift.Bool {
+    get
+    set
+  }
   public var messageOneof: WalletCore.TW_Polkadot_Proto_SigningInput.OneOf_MessageOneof? {
     get
     set
   }
-  #endif
   public var balanceCall: WalletCore.TW_Polkadot_Proto_Balance {
     get
     set
@@ -12059,9 +11866,7 @@ public struct TW_Polymesh_Proto_SecondaryKeyPermissions {
     case except
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -12198,9 +12003,7 @@ public struct TW_Polymesh_Proto_Utility {
     case optimistic
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -12604,12 +12407,8 @@ extension WalletCore.TW_Polymesh_Proto_SigningOutput : WalletCoreSwiftProtobuf.M
     get
   }
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(data: Foundation.Data)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(key: WalletCore.PrivateKey)
-  #endif
   @objc deinit
   final public func getPublicKey(coinType: WalletCore.CoinType) -> WalletCore.PublicKey
   final public func getPublicKeyByType(pubkeyType: WalletCore.PublicKeyType) -> WalletCore.PublicKey
@@ -12619,22 +12418,14 @@ extension WalletCore.TW_Polymesh_Proto_SigningOutput : WalletCoreSwiftProtobuf.M
   final public func getPublicKeyEd25519Blake2b() -> WalletCore.PublicKey
   final public func getPublicKeyEd25519Cardano() -> WalletCore.PublicKey
   final public func getPublicKeyCurve25519() -> WalletCore.PublicKey
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func sign(digest: Foundation.Data, curve: WalletCore.Curve) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func signAsDER(digest: Foundation.Data) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func signZilliqaSchnorr(message: Foundation.Data) -> Foundation.Data?
-  #endif
 }
 public enum PrivateKeyType : Swift.UInt32, Swift.CaseIterable {
   case `default`
   case cardano
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.PrivateKeyType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.PrivateKeyType] {
@@ -12651,9 +12442,7 @@ extension WalletCore.PublicKey {
 }
 @_hasMissingDesignatedInitializers final public class PublicKey {
   public static func isValid(data: Foundation.Data, type: WalletCore.PublicKeyType) -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func recover(signature: Foundation.Data, message: Foundation.Data) -> WalletCore.PublicKey?
-  #endif
   final public var isCompressed: Swift.Bool {
     get
   }
@@ -12672,9 +12461,7 @@ extension WalletCore.PublicKey {
   final public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(data: Foundation.Data, type: WalletCore.PublicKeyType)
-  #endif
   @objc deinit
   final public func verify(signature: Foundation.Data, message: Foundation.Data) -> Swift.Bool
   final public func verifyAsDER(signature: Foundation.Data, message: Foundation.Data) -> Swift.Bool
@@ -12690,9 +12477,7 @@ public enum PublicKeyType : Swift.UInt32, Swift.CaseIterable {
   case curve25519
   case ed25519Cardano
   case starkex
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.PublicKeyType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.PublicKeyType] {
@@ -12708,9 +12493,7 @@ public enum Purpose : Swift.UInt32, Swift.CaseIterable {
   case bip84
   case bip86
   case bip1852
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.Purpose]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.Purpose] {
@@ -13020,9 +12803,7 @@ extension WalletCore.TW_Ripple_Proto_SigningOutput : WalletCoreSwiftProtobuf.Mes
   final public var witnessProgram: Foundation.Data {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   public init(hrp: WalletCore.HRP, publicKey: WalletCore.PublicKey)
   @objc deinit
 }
@@ -13059,9 +12840,7 @@ public enum TW_Solana_Proto_TokenProgramId : WalletCoreSwiftProtobuf.Enum {
   case token2022Program
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -13076,9 +12855,7 @@ public enum TW_Solana_Proto_Encoding : WalletCoreSwiftProtobuf.Enum {
   case base64
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -13305,12 +13082,10 @@ public struct TW_Solana_Proto_SigningInput {
     get
     set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public var transactionType: WalletCore.TW_Solana_Proto_SigningInput.OneOf_TransactionType? {
     get
     set
   }
-  #endif
   public var transferTransaction: WalletCore.TW_Solana_Proto_Transfer {
     get
     set
@@ -13784,42 +13559,20 @@ extension WalletCore.TW_Solana_Proto_MessageVerifyingInput : WalletCoreSwiftProt
   final public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   @objc deinit
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func defaultTokenAddress(tokenMintAddress: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func token2022Address(tokenMintAddress: Swift.String) -> Swift.String?
-  #endif
 }
 @_hasMissingDesignatedInitializers final public class SolanaTransaction {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func updateBlockhashAndSign(encodedTx: Swift.String, recentBlockhash: Swift.String, privateKeys: WalletCore.DataVector) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getComputeUnitPrice(encodedTx: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getComputeUnitLimit(encodedTx: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func setComputeUnitPrice(encodedTx: Swift.String, price: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func setComputeUnitLimit(encodedTx: Swift.String, limit: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func setFeePayer(encodedTx: Swift.String, feePayer: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func insertInstruction(encodedTx: Swift.String, insertAt: Swift.Int32, instruction: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func insertTransferInstruction(encodedTx: Swift.String, insertAt: Swift.Int32, from: Swift.String, to: Swift.String, lamports: Swift.String) -> Swift.String?
-  #endif
   @objc deinit
 }
 public struct StarkExMessageSigner {
@@ -13827,7 +13580,7 @@ public struct StarkExMessageSigner {
   public static func verifyMessage(pubKey: WalletCore.PublicKey, message: Swift.String, signature: Swift.String) -> Swift.Bool
 }
 public struct StarkWare {
-  public static func getStarkKeyFromSignature(derivationPath: WalletCore.DerivationPath, signature: Swift.String) -> WalletCore.PrivateKey
+  public static func getStarkKeyFromSignature(derivationPath: WalletCore.DerivationPath, signature: Swift.String) -> WalletCore.PrivateKey?
 }
 public typealias StellarAsset = WalletCore.TW_Stellar_Proto_Asset
 public typealias StellarOperationCreateAccount = WalletCore.TW_Stellar_Proto_OperationCreateAccount
@@ -13848,9 +13601,7 @@ public enum TW_Stellar_Proto_ClaimPredicate : WalletCoreSwiftProtobuf.Enum {
   case predicateUnconditional
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -14156,9 +13907,7 @@ public enum StellarMemoType : Swift.UInt32, Swift.CaseIterable {
   case id
   case hash
   case `return`
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.StellarMemoType]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.StellarMemoType] {
@@ -14174,9 +13923,7 @@ public enum StellarPassphrase : Swift.UInt32, Swift.CaseIterable, Swift.CustomSt
   public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.StellarPassphrase]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.StellarPassphrase] {
@@ -14191,9 +13938,7 @@ public enum StellarVersionByte : Swift.UInt16, Swift.CaseIterable {
   case seed
   case preAuthTX
   case sha256Hash
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt16)
-  #endif
   public typealias AllCases = [WalletCore.StellarVersionByte]
   public typealias RawValue = Swift.UInt16
   nonisolated public static var allCases: [WalletCore.StellarVersionByte] {
@@ -14204,41 +13949,19 @@ public enum StellarVersionByte : Swift.UInt16, Swift.CaseIterable {
   }
 }
 @_hasMissingDesignatedInitializers final public class StoredKey {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func load(path: Swift.String) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importPrivateKey(privateKey: Foundation.Data, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importPrivateKeyWithEncryption(privateKey: Foundation.Data, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importPrivateKeyWithEncryptionAndDerivation(privateKey: Foundation.Data, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption, derivation: WalletCore.Derivation) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importPrivateKeyEncoded(privateKey: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importPrivateKeyEncodedWithEncryption(privateKey: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importPrivateKeyEncodedWithEncryptionAndDerivation(privateKey: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption, derivation: WalletCore.Derivation) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importHDWallet(mnemonic: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importHDWalletWithEncryption(mnemonic: Swift.String, name: Swift.String, password: Foundation.Data, coin: WalletCore.CoinType, encryption: WalletCore.StoredKeyEncryption) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func importJSON(json: Foundation.Data) -> WalletCore.StoredKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public var identifier: Swift.String? {
     get
   }
-  #endif
   final public var name: Swift.String {
     get
   }
@@ -14251,60 +13974,39 @@ public enum StellarVersionByte : Swift.UInt16, Swift.CaseIterable {
   final public var hasPrivateKeyEncoded: Swift.Bool {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   final public var encryptionParameters: Swift.String? {
     get
   }
-  #endif
   public init(name: Swift.String, password: Foundation.Data, encryptionLevel: WalletCore.StoredKeyEncryptionLevel)
   public init(name: Swift.String, password: Foundation.Data, encryptionLevel: WalletCore.StoredKeyEncryptionLevel, encryption: WalletCore.StoredKeyEncryption)
   public init(name: Swift.String, password: Foundation.Data)
   public init(name: Swift.String, password: Foundation.Data, encryption: WalletCore.StoredKeyEncryption)
   @objc deinit
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func account(index: Swift.Int) -> WalletCore.Account?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func accountForCoin(coin: WalletCore.CoinType, wallet: WalletCore.HDWallet?) -> WalletCore.Account?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func accountForCoinDerivation(coin: WalletCore.CoinType, derivation: WalletCore.Derivation, wallet: WalletCore.HDWallet?) -> WalletCore.Account?
-  #endif
   final public func addAccountDerivation(address: Swift.String, coin: WalletCore.CoinType, derivation: WalletCore.Derivation, derivationPath: Swift.String, publicKey: Swift.String, extendedPublicKey: Swift.String)
   final public func addAccount(address: Swift.String, coin: WalletCore.CoinType, derivationPath: Swift.String, publicKey: Swift.String, extendedPublicKey: Swift.String)
   final public func removeAccountForCoin(coin: WalletCore.CoinType)
   final public func removeAccountForCoinDerivation(coin: WalletCore.CoinType, derivation: WalletCore.Derivation)
   final public func removeAccountForCoinDerivationPath(coin: WalletCore.CoinType, derivationPath: Swift.String)
   final public func store(path: Swift.String) -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
+  final public func storeWithTemporaryFile(path: Swift.String, temporaryPath: Swift.String) -> Swift.Bool
   final public func decryptPrivateKey(password: Foundation.Data) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func decryptPrivateKeyEncoded(password: Foundation.Data) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func decryptMnemonic(password: Foundation.Data) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func privateKey(coin: WalletCore.CoinType, password: Foundation.Data) -> WalletCore.PrivateKey?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func wallet(password: Foundation.Data) -> WalletCore.HDWallet?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func exportJSON() -> Foundation.Data?
-  #endif
   final public func fixAddresses(password: Foundation.Data) -> Swift.Bool
   final public func updateAddress(coin: WalletCore.CoinType) -> Swift.Bool
+  final public func fixEncryption(password: Foundation.Data) -> Swift.Bool
 }
 public enum StoredKeyEncryption : Swift.UInt32, Swift.CaseIterable {
   case aes128Ctr
-  case aes128Cbc
   case aes192Ctr
   case aes256Ctr
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.StoredKeyEncryption]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.StoredKeyEncryption] {
@@ -14319,9 +14021,7 @@ public enum StoredKeyEncryptionLevel : Swift.UInt32, Swift.CaseIterable {
   case minimal
   case weak
   case standard
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.UInt32)
-  #endif
   public typealias AllCases = [WalletCore.StoredKeyEncryptionLevel]
   public typealias RawValue = Swift.UInt32
   nonisolated public static var allCases: [WalletCore.StoredKeyEncryptionLevel] {
@@ -14694,9 +14394,7 @@ public enum TW_THORChainSwap_Proto_Chain : WalletCoreSwiftProtobuf.Enum {
   case bsc
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -14718,9 +14416,7 @@ public enum TW_THORChainSwap_Proto_ErrorCode : WalletCoreSwiftProtobuf.Enum {
   case errorInvalidRouterAddress
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -14833,12 +14529,10 @@ public struct TW_THORChainSwap_Proto_SwapOutput {
     get
   }
   public mutating func clearError()
-  #if compiler(>=5.3) && $NonescapableTypes
   public var signingInputOneof: WalletCore.TW_THORChainSwap_Proto_SwapOutput.OneOf_SigningInputOneof? {
     get
     set
   }
-  #endif
   public var bitcoin: WalletCore.TW_Bitcoin_Proto_SigningInput {
     get
     set
@@ -14925,30 +14619,18 @@ public struct THORChainSwap {
   public static func buildSwap(input: Foundation.Data) -> Foundation.Data
 }
 @_hasMissingDesignatedInitializers final public class TONAddressConverter {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func toBoc(address: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func fromBoc(boc: Swift.String) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func toUserFriendly(address: Swift.String, bounceable: Swift.Bool, testnet: Swift.Bool) -> Swift.String?
-  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class TONMessageSigner {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func signMessage(privateKey: WalletCore.PrivateKey, message: Swift.String) -> Swift.String?
-  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class TONWallet {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func buildV4R2StateInit(publicKey: WalletCore.PublicKey, workchain: Swift.Int32, walletId: Swift.Int32) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func buildV5R1StateInit(publicKey: WalletCore.PublicKey, workchain: Swift.Int32, walletId: Swift.Int32) -> Swift.String?
-  #endif
   @objc deinit
 }
 public func CardanoMinAdaAmount(tokenBundle: Foundation.Data) -> Swift.UInt64
@@ -15030,9 +14712,7 @@ public struct TW_Tezos_Proto_Operation {
     case delegation
     case UNRECOGNIZED(Swift.Int)
     public init()
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public var rawValue: Swift.Int {
       get
     }
@@ -15256,9 +14936,7 @@ public enum TW_TheOpenNetwork_Proto_WalletVersion : WalletCoreSwiftProtobuf.Enum
   case walletV5R1
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -15277,9 +14955,7 @@ public enum TW_TheOpenNetwork_Proto_SendMode : WalletCoreSwiftProtobuf.Enum {
   case attachAllContractBalance
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -15456,9 +15132,7 @@ public struct TransactionDecoder {
   public static func decode(coinType: WalletCore.CoinType, encodedTx: Foundation.Data) -> Foundation.Data
 }
 public struct TransactionUtil {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func calcTxHash(coinType: WalletCore.CoinType, encodedTx: Swift.String) -> Swift.String?
-  #endif
 }
 public typealias TronTransferContract = WalletCore.TW_Tron_Proto_TransferContract
 public typealias TronTransferAssetContract = WalletCore.TW_Tron_Proto_TransferAssetContract
@@ -15713,10 +15387,6 @@ public struct TW_Tron_Proto_SigningInput {
     get
     set
   }
-  public var txID: Swift.String {
-    get
-    set
-  }
   public var rawJson: Swift.String {
     get
     set
@@ -15943,9 +15613,7 @@ public struct UniversalAssetID : Swift.CustomStringConvertible, Swift.Equatable,
   public enum Prefix : Swift.String {
     case coin
     case token
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -15957,9 +15625,7 @@ public struct UniversalAssetID : Swift.CustomStringConvertible, Swift.Equatable,
     get
   }
   public init(coin: WalletCore.CoinType, token: Swift.String = "")
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(string: Swift.String)
-  #endif
   public static func == (a: WalletCore.UniversalAssetID, b: WalletCore.UniversalAssetID) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -16155,9 +15821,7 @@ public enum TW_WalletConnect_Proto_Protocol : WalletCoreSwiftProtobuf.Enum {
   case v2
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -16173,9 +15837,7 @@ public enum TW_WalletConnect_Proto_Method : WalletCoreSwiftProtobuf.Enum {
   case solanaSignTransaction
   case UNRECOGNIZED(Swift.Int)
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public var rawValue: Swift.Int {
     get
   }
@@ -16200,12 +15862,10 @@ public struct TW_WalletConnect_Proto_ParseRequestOutput {
     get
     set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public var signingInputOneof: WalletCore.TW_WalletConnect_Proto_ParseRequestOutput.OneOf_SigningInputOneof? {
     get
     set
   }
-  #endif
   public var binance: WalletCore.TW_Binance_Proto_SigningInput {
     get
     set
@@ -16257,9 +15917,7 @@ public struct Watch : Swift.Codable, Swift.Equatable {
   public var name: Swift.String
   public var address: Swift.String
   public var xpub: Swift.String?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(coin: WalletCore.CoinType, name: Swift.String, address: Swift.String, xpub: Swift.String?)
-  #endif
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public static func == (a: WalletCore.Watch, b: WalletCore.Watch) -> Swift.Bool
@@ -16320,6 +15978,8 @@ public struct TW_Waves_Proto_SigningInput {
 public struct TW_Waves_Proto_SigningOutput {
   public var signature: Foundation.Data
   public var json: Swift.String
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
@@ -16374,19 +16034,13 @@ extension WalletCore.TW_Waves_Proto_SigningOutput : WalletCoreSwiftProtobuf.Mess
   }
 }
 public struct WebAuthn {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getPublicKey(attestationObject: Foundation.Data) -> WalletCore.PublicKey?
-  #endif
-  public static func getRSValues(signature: Foundation.Data) -> Foundation.Data
+  public static func getRSValues(signature: Foundation.Data) -> Foundation.Data?
   public static func reconstructOriginalMessage(authenticatorData: Foundation.Data, clientDataJSON: Foundation.Data) -> Foundation.Data
 }
 @_hasMissingDesignatedInitializers final public class WebAuthnSolidity {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getMessageHash(authenticatorData: Swift.String, clientDataJson: Swift.String) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func getFormattedSignature(authenticatorData: Swift.String, clientDataJson: Swift.String, derSignature: Foundation.Data) -> Foundation.Data?
-  #endif
   @objc deinit
 }
 public typealias ZcashTransactionBuilderExtraData = WalletCore.TW_Zcash_Proto_TransactionBuilderExtraData
@@ -16484,6 +16138,8 @@ public struct TW_Zilliqa_Proto_SigningInput {
 public struct TW_Zilliqa_Proto_SigningOutput {
   public var signature: Foundation.Data
   public var json: Swift.String
+  public var error: WalletCore.TW_Common_Proto_SigningError
+  public var errorMessage: Swift.String
   public var unknownFields: WalletCoreSwiftProtobuf.UnknownStorage
   public init()
 }
