@@ -7,5 +7,4 @@ framework module WalletCoreSwiftProtobuf {
 
 module WalletCoreSwiftProtobuf.Swift {
   header "WalletCoreSwiftProtobuf-Swift.h"
-  requires objc
 }
