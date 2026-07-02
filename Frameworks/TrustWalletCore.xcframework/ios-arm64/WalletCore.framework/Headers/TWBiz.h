@@ -5,13 +5,20 @@
 #pragma once
 
 #include "TWBase.h"
-#include "TWData.h"
 #include "TWString.h"
+#include "TWData.h"
 
 TW_EXTERN_C_BEGIN
 
 TW_EXPORT_CLASS
 struct TWBiz;
+
+/// Signs a message using the private key
+/// 
+/// \param hash The hash of the user.
+/// \param private_key The private key of the user.
+/// \return The signed hash.
+TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizGetSignedHash(TWString *_Nonnull hash, TWString *_Nonnull privateKey);
 
 /// Signs and encodes `Biz.executeWithPasskeySession` function call to execute a batch of transactions.
 /// 
@@ -31,12 +38,5 @@ TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizSignExecuteWithSignatureCall(TWDa
 /// \param user_op_hash The user operation hash of the smart contract wallet.
 /// \return The encoded hash.
 TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizGetEncodedHash(TWData *_Nonnull chainId, TWString *_Nonnull codeAddress, TWString *_Nonnull codeName, TWString *_Nonnull codeVersion, TWString *_Nonnull typeHash, TWString *_Nonnull domainSeparatorHash, TWString *_Nonnull sender, TWString *_Nonnull userOpHash);
-
-/// Signs a message using the private key
-/// 
-/// \param hash The hash of the user.
-/// \param private_key The private key of the user.
-/// \return The signed hash.
-TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizGetSignedHash(TWString *_Nonnull hash, TWString *_Nonnull privateKey);
 
 TW_EXTERN_C_END

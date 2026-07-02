@@ -5,13 +5,25 @@
 #pragma once
 
 #include "TWBase.h"
-#include "TWPublicKey.h"
 #include "TWData.h"
+#include "TWPublicKey.h"
 
 TW_EXTERN_C_BEGIN
 
 TW_EXPORT_CLASS
 struct TWBizPasskeySession;
+
+/// Signs and encodes `BizPasskeySession.executeWithPasskeySession` function call to execute a batch of transactions.
+/// 
+/// \param input The serialized data of `BizPasskeySession.ExecuteWithSignatureInput` protobuf message.
+/// \return ABI-encoded function call.
+TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizPasskeySessionSignExecuteWithSignatureCall(TWData *_Nonnull input);
+
+/// Encodes `BizPasskeySession.executeWithPasskeySession` function call to execute a batch of transactions.
+/// 
+/// \param input The serialized data of `BizPasskeySession.ExecuteWithPasskeySessionInput` protobuf message.
+/// \return ABI-encoded function call.
+TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizPasskeySessionEncodeExecuteWithPasskeySessionCall(TWData *_Nonnull input);
 
 /// Encodes `BizPasskeySession.registerSession` function call to register a session passkey public key.
 /// 
@@ -31,17 +43,5 @@ TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizPasskeySessionEncodeRemoveSession
 /// \param nonce The nonce of the Biz Passkey Session account.
 /// \return uint256 represented as [passkey_nonce_key_192, nonce_64].
 TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizPasskeySessionEncodePasskeySessionNonce(TWData *_Nonnull nonce);
-
-/// Encodes `BizPasskeySession.executeWithPasskeySession` function call to execute a batch of transactions.
-/// 
-/// \param input The serialized data of `BizPasskeySession.ExecuteWithPasskeySessionInput` protobuf message.
-/// \return ABI-encoded function call.
-TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizPasskeySessionEncodeExecuteWithPasskeySessionCall(TWData *_Nonnull input);
-
-/// Signs and encodes `BizPasskeySession.executeWithPasskeySession` function call to execute a batch of transactions.
-/// 
-/// \param input The serialized data of `BizPasskeySession.ExecuteWithSignatureInput` protobuf message.
-/// \return ABI-encoded function call.
-TW_EXPORT_STATIC_METHOD TWData *_Nullable TWBizPasskeySessionSignExecuteWithSignatureCall(TWData *_Nonnull input);
 
 TW_EXTERN_C_END
