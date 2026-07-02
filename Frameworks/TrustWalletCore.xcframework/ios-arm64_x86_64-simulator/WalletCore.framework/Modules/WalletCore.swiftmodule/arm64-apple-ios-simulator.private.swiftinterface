@@ -60,7 +60,7 @@ extension WalletCore.Account : Swift.Codable {
   final public var extendedPublicKey: Swift.String {
     get
   }
-  public init(address: Swift.String, coin: WalletCore.CoinType, derivation: WalletCore.Derivation, derivationPath: Swift.String, publicKey: Swift.String, extendedPublicKey: Swift.String)
+  public init?(address: Swift.String, coin: WalletCore.CoinType, derivation: WalletCore.Derivation, derivationPath: Swift.String, publicKey: Swift.String, extendedPublicKey: Swift.String)
   @objc deinit
 }
 public protocol Address : Swift.CustomStringConvertible {
@@ -1044,11 +1044,11 @@ extension WalletCore.TW_Barz_Proto_DiamondCutInput : WalletCoreSwiftProtobuf.Mes
   }
 }
 @_hasMissingDesignatedInitializers final public class Barz {
-  public static func getInitCode(factory: Swift.String, publicKey: WalletCore.PublicKey, verificationFacet: Swift.String, salt: Swift.Int32) -> Foundation.Data?
-  public static func getFormattedSignature(signature: Foundation.Data, challenge: Foundation.Data, authenticatorData: Foundation.Data, clientDataJson: Swift.String) -> Foundation.Data?
   public static func getPrefixedMsgHash(msgHash: Foundation.Data, barzAddress: Swift.String, chainId: Swift.Int32) -> Foundation.Data?
   public static func getDiamondCutCode(input: Foundation.Data) -> Foundation.Data?
   public static func getCounterfactualAddress(input: Foundation.Data) -> Swift.String?
+  public static func getInitCode(factory: Swift.String, publicKey: WalletCore.PublicKey, verificationFacet: Swift.String, salt: Swift.Int32) -> Foundation.Data?
+  public static func getFormattedSignature(signature: Foundation.Data, challenge: Foundation.Data, authenticatorData: Foundation.Data, clientDataJson: Swift.String) -> Foundation.Data?
   @objc deinit
 }
 public struct Base32 {
@@ -2948,9 +2948,9 @@ extension WalletCore.TW_Biz_Proto_ExecuteWithSignatureInput : WalletCoreSwiftPro
   }
 }
 @_hasMissingDesignatedInitializers final public class Biz {
+  public static func getSignedHash(hash: Swift.String, privateKey: Swift.String) -> Foundation.Data?
   public static func signExecuteWithSignatureCall(input: Foundation.Data) -> Foundation.Data?
   public static func getEncodedHash(chainId: Foundation.Data, codeAddress: Swift.String, codeName: Swift.String, codeVersion: Swift.String, typeHash: Swift.String, domainSeparatorHash: Swift.String, sender: Swift.String, userOpHash: Swift.String) -> Foundation.Data?
-  public static func getSignedHash(hash: Swift.String, privateKey: Swift.String) -> Foundation.Data?
   @objc deinit
 }
 public typealias BizPasskeySessionEncodingHashParams = WalletCore.TW_BizPasskeySession_Proto_EncodingHashParams
@@ -3040,11 +3040,11 @@ extension WalletCore.TW_BizPasskeySession_Proto_ExecuteWithSignatureInput : Wall
   }
 }
 @_hasMissingDesignatedInitializers final public class BizPasskeySession {
+  public static func signExecuteWithSignatureCall(input: Foundation.Data) -> Foundation.Data?
+  public static func encodeExecuteWithPasskeySessionCall(input: Foundation.Data) -> Foundation.Data?
   public static func encodeRegisterSessionCall(sessionPasskeyPublicKey: WalletCore.PublicKey, validUntilTimestamp: Foundation.Data) -> Foundation.Data?
   public static func encodeRemoveSessionCall(sessionPasskeyPublicKey: WalletCore.PublicKey) -> Foundation.Data?
   public static func encodePasskeySessionNonce(nonce: Foundation.Data) -> Foundation.Data?
-  public static func encodeExecuteWithPasskeySessionCall(input: Foundation.Data) -> Foundation.Data?
-  public static func signExecuteWithSignatureCall(input: Foundation.Data) -> Foundation.Data?
   @objc deinit
 }
 public enum Blockchain : Swift.UInt32, Swift.CaseIterable {
@@ -3322,6 +3322,10 @@ public struct TW_Cardano_Proto_SigningInput {
   }
   public mutating func clearPlan()
   public var extraOutputs: [WalletCore.TW_Cardano_Proto_TxOutput] {
+    get
+    set
+  }
+  public var auxiliaryData: Foundation.Data {
     get
     set
   }
@@ -3702,6 +3706,7 @@ public enum CoinType : Swift.UInt32, Swift.CaseIterable {
   case megaETH
   case seiEVM
   case hyperEVM
+  case robinhoodChain
   public init?(rawValue: Swift.UInt32)
   public typealias AllCases = [WalletCore.CoinType]
   public typealias RawValue = Swift.UInt32
@@ -6520,6 +6525,7 @@ public enum EthereumChainID : Swift.UInt32, Swift.CaseIterable {
   case moonriver
   case ronin
   case kavaevm
+  case robinhoodchain
   case iotexevm
   case kaia
   case avalanchec
@@ -7462,9 +7468,9 @@ public enum HDVersion : Swift.UInt32, Swift.CaseIterable {
   final public func getKeyForCoin(coin: WalletCore.CoinType) -> WalletCore.PrivateKey
   final public func getAddressForCoin(coin: WalletCore.CoinType) -> Swift.String
   final public func getAddressDerivation(coin: WalletCore.CoinType, derivation: WalletCore.Derivation) -> Swift.String
-  final public func getKey(coin: WalletCore.CoinType, derivationPath: Swift.String) -> WalletCore.PrivateKey
+  final public func getKey(coin: WalletCore.CoinType, derivationPath: Swift.String) -> WalletCore.PrivateKey?
   final public func getKeyDerivation(coin: WalletCore.CoinType, derivation: WalletCore.Derivation) -> WalletCore.PrivateKey
-  final public func getKeyByCurve(curve: WalletCore.Curve, derivationPath: Swift.String) -> WalletCore.PrivateKey
+  final public func getKeyByCurve(curve: WalletCore.Curve, derivationPath: Swift.String) -> WalletCore.PrivateKey?
   final public func getDerivedKey(coin: WalletCore.CoinType, account: Swift.UInt32, change: Swift.UInt32, address: Swift.UInt32) -> WalletCore.PrivateKey
   final public func getExtendedPrivateKey(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion) -> Swift.String
   final public func getExtendedPublicKey(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion) -> Swift.String

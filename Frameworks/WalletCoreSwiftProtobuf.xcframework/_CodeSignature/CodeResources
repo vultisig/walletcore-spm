@@ -38,7 +38,7 @@
 		</data>
 		<key>ios-arm64/WalletCoreSwiftProtobuf.framework/WalletCoreSwiftProtobuf</key>
 		<data>
-		rUnWAxJ88BpTnlxC5PKGL87LjE8=
+		1XWJh8LcdIJ0n0ESE6t2juwTZ/I=
 		</data>
 		<key>ios-arm64/WalletCoreSwiftProtobuf.framework/WalletCoreSwiftProtobuf.bundle/Info.plist</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCoreSwiftProtobuf.framework/Versions/A/WalletCoreSwiftProtobuf</key>
 		<data>
-		bNhxlwjYVKEEhYR5jMv5poyQhuQ=
+		j+AuMb1qy+ri5SdRTJnWv4favC4=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCoreSwiftProtobuf.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
@@ -166,7 +166,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCoreSwiftProtobuf.framework/WalletCoreSwiftProtobuf</key>
 		<data>
-		+w31c8G54RYL+xiDbfW/KehfvTw=
+		PUpsMw6ZoJdFi2QI8t1iaLqslfc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCoreSwiftProtobuf.framework/WalletCoreSwiftProtobuf.bundle/Info.plist</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCoreSwiftProtobuf.framework/Versions/A/WalletCoreSwiftProtobuf</key>
 		<data>
-		goQPrPGpHFbvILiWULpO+4NxF6Y=
+		7a+i+6yLRD2lK/q93ASJ4lF+3nA=
 		</data>
 		<key>macos-arm64_x86_64/WalletCoreSwiftProtobuf.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
@@ -307,7 +307,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dSUcDCrQ8Ynzs5cGeOSxrIqUid0ikYsAxAN+fQGH/eg=
+			xvD0MSKEIGjIbJSdBvHpjlFAZUhqu7MIIK1ipKAWgWk=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCoreSwiftProtobuf.framework/WalletCoreSwiftProtobuf.bundle/Info.plist</key>
@@ -448,7 +448,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5qRpNelelRzBZiP+AHcDnUtZNxHkO36ytMM0vo02oQs=
+			Wexs6Qe4ZrXRgpN422FxDJmaYkmmB8SRmd2cpPYa/2Q=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCoreSwiftProtobuf.framework/Versions/A/_CodeSignature/CodeResources</key>
@@ -556,7 +556,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BYAoMc4bXnrFZnd8qmTKMUbzddfLWOBDZ1L05H5XE/U=
+			g0tvkl40ZptUaFkrudEYHXUCyC9EuF9aa4Ge1FTJpe0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCoreSwiftProtobuf.framework/WalletCoreSwiftProtobuf.bundle/Info.plist</key>
@@ -697,7 +697,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C77Ju/9bWlc/noCcgRrG6S0TeQuy2tQIIj0vLUuTJjs=
+			AoEzPRZu5nnenc0UDr1f/u8b8lkj8+iAtkmfpjHOC+Y=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCoreSwiftProtobuf.framework/Versions/A/_CodeSignature/CodeResources</key>
