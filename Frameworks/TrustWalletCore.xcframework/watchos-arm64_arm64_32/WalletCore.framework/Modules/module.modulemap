@@ -1,0 +1,10 @@
+framework module WalletCore {
+  umbrella header "WalletCore.h"
+  export *
+
+  module * { export * }
+}
+
+module WalletCore.Swift {
+  header "WalletCore-Swift.h"
+}
