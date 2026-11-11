@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/WalletCoreSwiftProtobuf-Swift.h</key>
 		<data>
-		IE+M5L/cUiVVeHY+MVyP2PuHx5I=
+		BmgRc3jv0j550rzm0R3agNbUXyw=
 		</data>
 		<key>Headers/WalletCoreSwiftProtobuf-iOS-umbrella.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+8sIRusQ4QXAqGdFQzaq1xOsaRs=
+		17fWPB8NA9D3aFq4kNQlelg4olg=
 		</data>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		/33OhUJMJc6xpRmt398zFpy7KgE=
+		LNcwDOeehrgUte2A64ChRy21agA=
 		</data>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		HTfEPjEJhCTam403DjOb+3icxqo=
+		y3BbPLZiPVF/DKmzCdHGyMDix7s=
 		</data>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		KgkQKkmWoo2wzCZBze6NghnfEFU=
+		YgmBU3JukuQim5I8hdxjPXuQ2oQ=
 		</data>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		HTfEPjEJhCTam403DjOb+3icxqo=
+		y3BbPLZiPVF/DKmzCdHGyMDix7s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>WalletCoreSwiftProtobuf.bundle/Info.plist</key>
 		<data>
-		b/IpvutmSQD2bp7774KumDrmj4g=
+		fpbBDb69pk3VQvRzIxrPCug3OVM=
 		</data>
 		<key>WalletCoreSwiftProtobuf.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			64qndoMYzaYD5iRLYFTTf5pusabkq+l0KtHJoLyl4hU=
+			xxkvWkcE7SA8gqNuShJx4hU9guTrk9y4YUUEuG7pIuo=
 			</data>
 		</dict>
 		<key>Headers/WalletCoreSwiftProtobuf-iOS-umbrella.h</key>
@@ -65,28 +65,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fcZaM0KGSqIxsHFDgZXEvYWz62TS8Q70zLwEWwqtriA=
+			W5AZrFxZYDIZsFCXJIkxY+ppHkiQhEj6BG7d8S3TnKE=
 			</data>
 		</dict>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			w3gdVX3aBHM+XH2xm6R+qKrGVYK5yfF6Umej+eZaa4o=
+			w1BUbnLOrWNESkJqyJoTVeo9z2tUh/WZPiOHUyHmovE=
 			</data>
 		</dict>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BVmRWU6UZeowAPPaQH7bvtk6LvZ/Xn5AmjJoZI96aH8=
+			qLY3wbaSuJjN5pB4UKXMB3S1dQqpV7At5f2vT3+L+hs=
 			</data>
 		</dict>
 		<key>Modules/WalletCoreSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			w3gdVX3aBHM+XH2xm6R+qKrGVYK5yfF6Umej+eZaa4o=
+			w1BUbnLOrWNESkJqyJoTVeo9z2tUh/WZPiOHUyHmovE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NsDXdFonSBNb0maVpLthfd0pgGgocT/oMJwgkhOaGTs=
+			g9h3SPRWo1LEZEKGnXku+FDsch+OGaA3zvwoLGJx5YQ=
 			</data>
 		</dict>
 		<key>WalletCoreSwiftProtobuf.bundle/PrivacyInfo.xcprivacy</key>

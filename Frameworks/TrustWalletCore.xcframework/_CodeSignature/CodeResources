@@ -30,7 +30,7 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWBarz.h</key>
 		<data>
-		PleFNzlc+WnsjU5bborr5XL62zo=
+		BNQNG2NB0Hkx2h3UWOyf0/9zYTo=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWBase.h</key>
 		<data>
@@ -86,11 +86,11 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWCoinType.h</key>
 		<data>
-		HBJDUZ+LplDIVr3AVxcvKkuTsjQ=
+		arAE8pwQ0NaANdIpw31MnDu1HRA=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWCoinTypeConfiguration.h</key>
 		<data>
-		xluBTGjhD6FISCQK8AqTjHJXOWI=
+		L+dT0auHMogtAdNLnFSPMRKaN44=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWCryptoBox.h</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWEthereumChainID.h</key>
 		<data>
-		d2dVljKzF2WKlczZ+SgybsJGVbk=
+		I0QvVB1jAzdM2d4VGIZOJYkkrrM=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWEthereumMessageSigner.h</key>
 		<data>
@@ -186,7 +186,7 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWHDWallet.h</key>
 		<data>
-		53oze8UOadnkJqwX2nWnOuvm3bE=
+		yYGP1yRW5m9/P0Z5VLj7TfKyOXA=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/TWHRP.h</key>
 		<data>
@@ -338,7 +338,7 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/WalletCore-Swift.h</key>
 		<data>
-		nQ4dhNKse2jit/N5eIzGPsa9674=
+		8QTmDGUkWPy7RK97I8cGmWEeAfg=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Headers/WalletCore.h</key>
 		<data>
@@ -346,23 +346,23 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/Info.plist</key>
 		<data>
-		Nc20qC4PHuPcmQnFseYbxuTVxMs=
+		LXg0GBlej5W3XiI2gWZpryVbuVQ=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		tDx/4fJn14bRDzRNbPQDA1e6Nmw=
+		LJar3SLb968vcjh2U9TBPRDdG0M=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		hhOdiqUa8c3FPsJy/lBwA4FOyGg=
+		HZGq66VPnNkw/YguDoqeZ+18PgA=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		tDx/4fJn14bRDzRNbPQDA1e6Nmw=
+		LJar3SLb968vcjh2U9TBPRDdG0M=
 		</data>
 		<key>ios-arm64/WalletCore.framework/Modules/module.modulemap</key>
 		<data>
@@ -370,11 +370,11 @@
 		</data>
 		<key>ios-arm64/WalletCore.framework/WalletCore</key>
 		<data>
-		o0tLPCtwSf7JxJueIzn1GIO+wwA=
+		V3trTuaDMFX+Sz5Ag1yVH7VqW2s=
 		</data>
 		<key>ios-arm64/WalletCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		n3miE0LCghUl/7rPiiTNrgyOmNg=
+		oeNnfEZS51c4J1yNqDbnFj4Q37w=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWAES.h</key>
 		<data>
@@ -402,7 +402,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWBarz.h</key>
 		<data>
-		PleFNzlc+WnsjU5bborr5XL62zo=
+		BNQNG2NB0Hkx2h3UWOyf0/9zYTo=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWBase.h</key>
 		<data>
@@ -458,11 +458,11 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWCoinType.h</key>
 		<data>
-		HBJDUZ+LplDIVr3AVxcvKkuTsjQ=
+		arAE8pwQ0NaANdIpw31MnDu1HRA=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWCoinTypeConfiguration.h</key>
 		<data>
-		xluBTGjhD6FISCQK8AqTjHJXOWI=
+		L+dT0auHMogtAdNLnFSPMRKaN44=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWCryptoBox.h</key>
 		<data>
@@ -522,7 +522,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWEthereumChainID.h</key>
 		<data>
-		d2dVljKzF2WKlczZ+SgybsJGVbk=
+		I0QvVB1jAzdM2d4VGIZOJYkkrrM=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWEthereumMessageSigner.h</key>
 		<data>
@@ -558,7 +558,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWHDWallet.h</key>
 		<data>
-		53oze8UOadnkJqwX2nWnOuvm3bE=
+		yYGP1yRW5m9/P0Z5VLj7TfKyOXA=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWHRP.h</key>
 		<data>
@@ -710,7 +710,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/WalletCore-Swift.h</key>
 		<data>
-		S6vSW7Hap98sBtXbAr+DM871AJM=
+		XMIGbfqhySnh/XtBs/B8Ir+pVrQ=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/WalletCore.h</key>
 		<data>
@@ -718,35 +718,35 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<data>
-		yRsv6TDpLFOm30vhX6v1pe9r7mE=
+		GfVPeqeh5bekEuQauWwNgHu/ICk=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		xFSh4iO6Vqw3qzQ9Gle/ydN3oxo=
+		GD0sti3Gy4KCLfiuDb/w7Yn+c4w=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		yRsv6TDpLFOm30vhX6v1pe9r7mE=
+		GfVPeqeh5bekEuQauWwNgHu/ICk=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<data>
-		RCccjnRVlNwuyzA4gYIzV9MJb+k=
+		WpgntG5a6xlIGaw8UJpj7In48aU=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		89LZimxLoBk0NFfTXCkg9DDEhUk=
+		dclw+BB7DCvkvRBr4mz9qqiya/Y=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		RCccjnRVlNwuyzA4gYIzV9MJb+k=
+		WpgntG5a6xlIGaw8UJpj7In48aU=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/module.modulemap</key>
 		<data>
@@ -754,15 +754,15 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Resources/Info.plist</key>
 		<data>
-		xfD3QNFEuBmW1KyYUlE4FNFhcZk=
+		LdEyiSV/gbDIYOscU2vHZBBYY1g=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/WalletCore</key>
 		<data>
-		61HY5fnojYIx8k2yy2M5skffEpk=
+		8DnWNL/raG3R/2Ibp/5xClrjWQM=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
-		+UpSr60whtJXNTqR6YpPVM4sRaE=
+		IQqzR6ZYkX5tcgDW4vDwSnpEKMs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWAES.h</key>
 		<data>
@@ -790,7 +790,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWBarz.h</key>
 		<data>
-		PleFNzlc+WnsjU5bborr5XL62zo=
+		BNQNG2NB0Hkx2h3UWOyf0/9zYTo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWBase.h</key>
 		<data>
@@ -846,11 +846,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWCoinType.h</key>
 		<data>
-		HBJDUZ+LplDIVr3AVxcvKkuTsjQ=
+		arAE8pwQ0NaANdIpw31MnDu1HRA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWCoinTypeConfiguration.h</key>
 		<data>
-		xluBTGjhD6FISCQK8AqTjHJXOWI=
+		L+dT0auHMogtAdNLnFSPMRKaN44=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWCryptoBox.h</key>
 		<data>
@@ -910,7 +910,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWEthereumChainID.h</key>
 		<data>
-		d2dVljKzF2WKlczZ+SgybsJGVbk=
+		I0QvVB1jAzdM2d4VGIZOJYkkrrM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWEthereumMessageSigner.h</key>
 		<data>
@@ -946,7 +946,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWHDWallet.h</key>
 		<data>
-		53oze8UOadnkJqwX2nWnOuvm3bE=
+		yYGP1yRW5m9/P0Z5VLj7TfKyOXA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWHRP.h</key>
 		<data>
@@ -1098,7 +1098,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/WalletCore-Swift.h</key>
 		<data>
-		S6vSW7Hap98sBtXbAr+DM871AJM=
+		XMIGbfqhySnh/XtBs/B8Ir+pVrQ=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/WalletCore.h</key>
 		<data>
@@ -1106,39 +1106,39 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Info.plist</key>
 		<data>
-		ysHkDqC7yBWKOaKrZHo3TDZe0pw=
+		ptu3h2xXslMzUl01padq8Va1wy8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		GJxTgUzWtNGgtdRlgbBocD8MPjA=
+		RGfMCazS6vX7V0my2Q6sgqZPock=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		aG3fMGSYRBiQY32qZ7jg2sWwUW0=
+		L9mwJEgtDpy7MjjKNbuaC2NRY+E=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		GJxTgUzWtNGgtdRlgbBocD8MPjA=
+		RGfMCazS6vX7V0my2Q6sgqZPock=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		61IHRs+jZSWmpecgw2oowtEcUgQ=
+		OVezM5p/Szlcmif6+EuqkDfE3DY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		uaKgvO5MEJ5Sz1/dGsDgd8hL1sU=
+		fkMU3MuecUrBbXaz2ZbLhvgMoL4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		61IHRs+jZSWmpecgw2oowtEcUgQ=
+		OVezM5p/Szlcmif6+EuqkDfE3DY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/module.modulemap</key>
 		<data>
@@ -1146,11 +1146,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/WalletCore</key>
 		<data>
-		7Twe0NID0QZWkXiczdbFxLwIwbs=
+		8hiNedNhVVRYn1DzS5FZgH85HPc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		0RGKdMMMav8K3j+fgxRM4w9WtdQ=
+		HjI9VjDfq9etAU3WcuSQwWYX0PI=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWAES.h</key>
 		<data>
@@ -1178,7 +1178,7 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWBarz.h</key>
 		<data>
-		PleFNzlc+WnsjU5bborr5XL62zo=
+		BNQNG2NB0Hkx2h3UWOyf0/9zYTo=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWBase.h</key>
 		<data>
@@ -1234,11 +1234,11 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWCoinType.h</key>
 		<data>
-		HBJDUZ+LplDIVr3AVxcvKkuTsjQ=
+		arAE8pwQ0NaANdIpw31MnDu1HRA=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWCoinTypeConfiguration.h</key>
 		<data>
-		xluBTGjhD6FISCQK8AqTjHJXOWI=
+		L+dT0auHMogtAdNLnFSPMRKaN44=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWCryptoBox.h</key>
 		<data>
@@ -1298,7 +1298,7 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWEthereumChainID.h</key>
 		<data>
-		d2dVljKzF2WKlczZ+SgybsJGVbk=
+		I0QvVB1jAzdM2d4VGIZOJYkkrrM=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWEthereumMessageSigner.h</key>
 		<data>
@@ -1334,7 +1334,7 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWHDWallet.h</key>
 		<data>
-		53oze8UOadnkJqwX2nWnOuvm3bE=
+		yYGP1yRW5m9/P0Z5VLj7TfKyOXA=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWHRP.h</key>
 		<data>
@@ -1486,7 +1486,7 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/WalletCore-Swift.h</key>
 		<data>
-		S6vSW7Hap98sBtXbAr+DM871AJM=
+		XMIGbfqhySnh/XtBs/B8Ir+pVrQ=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/WalletCore.h</key>
 		<data>
@@ -1494,35 +1494,35 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.private.swiftinterface</key>
 		<data>
-		34SeopxW6Mdwc7a9Lf0k4skrc+g=
+		fcYhkThP1rIFNyxfxlbMzaR21K0=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.swiftdoc</key>
 		<data>
-		hlzg/HLKWR7E/0EwRv/OQTK4rKg=
+		ZC9vlcU1ttfFDuB/f4gO/zwZpgs=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<data>
-		34SeopxW6Mdwc7a9Lf0k4skrc+g=
+		fcYhkThP1rIFNyxfxlbMzaR21K0=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.abi.json</key>
 		<data>
-		48hFSxRqP08apw5BGaptrduo5kE=
+		mzNUfQAFr4nPlUcatpoxb+jIQIo=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.private.swiftinterface</key>
 		<data>
-		7PGfweEHbV10X8Lql4WQzF//FwM=
+		Lzt+qTkto7b0MgYTo7H2fk/Nf4I=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<data>
-		PVTSN/oYFS7ftVFil3CUqfSGpwY=
+		GFtE/RLjQVl68YWluaQgpvOPvtM=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<data>
-		7PGfweEHbV10X8Lql4WQzF//FwM=
+		Lzt+qTkto7b0MgYTo7H2fk/Nf4I=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/module.modulemap</key>
 		<data>
@@ -1530,15 +1530,15 @@
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Resources/Info.plist</key>
 		<data>
-		VHboOwrhSnDRxyadqPZpr6fZ9YU=
+		Uw7LcQ/muTmlVJczt1YjzaSqEkQ=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/WalletCore</key>
 		<data>
-		dOg0IH9rzXP0VTQLJOUT03dWWVQ=
+		p8DV3Dpl5JyyurLdmwcXbWSuWYE=
 		</data>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
-		aFY3PpyObI9jO+XR7XpwT0RnZJ0=
+		Xdia/03U9KDB45NP8QQMvZ7o6dA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1589,7 +1589,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c31mo8xh1v6PwAdqNBe0uvErAe6bwjp2yH+JVaPQwrk=
+			ZqBTcq8Ar1b3tWlH8gadjIPe3gcG2JzjuXGORTkFJ8k=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Headers/TWBase.h</key>
@@ -1687,14 +1687,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U1I0cpqZMvwUdN5M9/c2+egEd7vDo2MnRgzmivil5NY=
+			+FMHW1jDG6PHlz2NdG70PaaIP3eA+T6b9iZ5Lu+dgiI=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Headers/TWCoinTypeConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zjm0KvYfp00kkHxAqBTq/8Exov2GmVdVRHwggplRRo8=
+			0R//lwnpeKZJS9L1TtMe/0AS81JqYNp1FBItldINm+E=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Headers/TWCryptoBox.h</key>
@@ -1799,7 +1799,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k7iFmDowNIz5MYOxnz2C7iNx8dF8+MXsXyIRr07hHbs=
+			oQZb/yDxXeIhsfwmKL3m8Ky98Oex6hFBN57aCBe1Yyg=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Headers/TWEthereumMessageSigner.h</key>
@@ -1862,7 +1862,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E6rYzn9t/0uKtPsQKp9qTtHJFgHZNVjfRsDIsVSXjYI=
+			Tx//kOX/kB+qc9n4c32ht7A5+qd+Gv6OOHJo3ZmmTcg=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Headers/TWHRP.h</key>
@@ -2128,7 +2128,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gNkZNbg7mHcb5r7GV+uiJbHw9DfgO6keVAkbc1u0muc=
+			bi9W8IexWS2RRLCNeTJlC89WJ0crG0u6+p4XaEYwsJQ=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Headers/WalletCore.h</key>
@@ -2142,35 +2142,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZmCDMFYuqw1l4KPS7m5gjtZ2KKQcolgZ80uG5pLGVFY=
+			X/xJZasxYXARwz9sWRxRxUMHXwUCQOIOT2HRFZPEB8E=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1BE7/MtIYbsqLGFuRZHfYSYC3+V1AgvJVX3p6iHctvU=
+			vfgpqtbH/BjrzGbKXfmEiViFZutI80UqirWNFIvVBuU=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SeXZCmHImYOXcHiZD2B9bhAjNeJ/aZ6WD8uLCsBQbgo=
+			Q005slRQJu7IywgZnbTLGGxFC20CWHF9qLXa1q2Ubm4=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1BE7/MtIYbsqLGFuRZHfYSYC3+V1AgvJVX3p6iHctvU=
+			vfgpqtbH/BjrzGbKXfmEiViFZutI80UqirWNFIvVBuU=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/Modules/module.modulemap</key>
@@ -2184,14 +2184,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wMT8inn1vsGthDycR9OSMhpFPx7b5QWwipv9EDhL3g4=
+			zzsiXeQ+78z5njhkOD7tJhr5WhZ8WpAKbvpxaajTQN8=
 			</data>
 		</dict>
 		<key>ios-arm64/WalletCore.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UpoKw96PrZTSy+n1uCTXs3036lzGSUvNxxkL0cIgK+M=
+			XyTW291Xo5pnob8B1tduEcbYVUOB2Ux2ktgschTTC4U=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Headers</key>
@@ -2255,7 +2255,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c31mo8xh1v6PwAdqNBe0uvErAe6bwjp2yH+JVaPQwrk=
+			ZqBTcq8Ar1b3tWlH8gadjIPe3gcG2JzjuXGORTkFJ8k=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWBase.h</key>
@@ -2353,14 +2353,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U1I0cpqZMvwUdN5M9/c2+egEd7vDo2MnRgzmivil5NY=
+			+FMHW1jDG6PHlz2NdG70PaaIP3eA+T6b9iZ5Lu+dgiI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWCoinTypeConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zjm0KvYfp00kkHxAqBTq/8Exov2GmVdVRHwggplRRo8=
+			0R//lwnpeKZJS9L1TtMe/0AS81JqYNp1FBItldINm+E=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWCryptoBox.h</key>
@@ -2465,7 +2465,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k7iFmDowNIz5MYOxnz2C7iNx8dF8+MXsXyIRr07hHbs=
+			oQZb/yDxXeIhsfwmKL3m8Ky98Oex6hFBN57aCBe1Yyg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWEthereumMessageSigner.h</key>
@@ -2528,7 +2528,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E6rYzn9t/0uKtPsQKp9qTtHJFgHZNVjfRsDIsVSXjYI=
+			Tx//kOX/kB+qc9n4c32ht7A5+qd+Gv6OOHJo3ZmmTcg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/TWHRP.h</key>
@@ -2794,7 +2794,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jrh5lrkSUg3pjHQxFjcVpLPKc91mwytPDfdxV++57gc=
+			VG+v3vNMJKw8xjaosa1fJfHynvIAlNLfJ9cJRCfohbo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Headers/WalletCore.h</key>
@@ -2808,56 +2808,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c39FqlpBHCIzsji/+YerGYmEKq3qUfVZOSjHOGe87Y0=
+			EucdFyVj4ueT/Uul6m4IH8L9sLnHpZ83xzGkeOzqvq4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			o/bgBzUHtNDcioQ2x6rrlxfQjruYZOgmNU8B4kk+ZwA=
+			HvOd/ThDOcpkLqq0fqy43vPTKeIKANnojnBvG1y6U24=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c39FqlpBHCIzsji/+YerGYmEKq3qUfVZOSjHOGe87Y0=
+			EucdFyVj4ueT/Uul6m4IH8L9sLnHpZ83xzGkeOzqvq4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iCmbeSVKckVIH7rZxkNOOI9FHO9PFfEtuhJAwC3VMBA=
+			Yxop9RYp99tDdKxAV4AHNMTAnxMRBhVqnPiwFczYST8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rC9BOVsdsJIO1GCFqNK0NXoueTlU73kS+HBSsUyA//w=
+			OedKawdyLfSCvcmClQn32V03WnW93DmPGOpVhdD4bWQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iCmbeSVKckVIH7rZxkNOOI9FHO9PFfEtuhJAwC3VMBA=
+			Yxop9RYp99tDdKxAV4AHNMTAnxMRBhVqnPiwFczYST8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/Modules/module.modulemap</key>
@@ -2871,21 +2871,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C7pOdYGyT3nmTMYszyTZuztWyYAOhDVXtx36OTX706Q=
+			SOqqvEQFVhlmPg4X0Ma0YKx/yl7wDLg2fK3i5j80eyA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/WalletCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iNaabLl7m3ACvXPrDmj7+igK9I4ZCDTYQMzXeVe0ZUc=
+			Beatr3sHV1zVrulPrAA/LnG72W4+OwWHLp5ogOQUxM8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/gOP2ixJgJSOxLeWzRji+fR2zX3aGPQmiX3ysnaoSig=
+			RKLemd9wjf+x1Fcw0aRJOGM5EFhnl+LJALabD+xsfFw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/WalletCore.framework/Versions/Current</key>
@@ -2944,7 +2944,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c31mo8xh1v6PwAdqNBe0uvErAe6bwjp2yH+JVaPQwrk=
+			ZqBTcq8Ar1b3tWlH8gadjIPe3gcG2JzjuXGORTkFJ8k=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWBase.h</key>
@@ -3042,14 +3042,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U1I0cpqZMvwUdN5M9/c2+egEd7vDo2MnRgzmivil5NY=
+			+FMHW1jDG6PHlz2NdG70PaaIP3eA+T6b9iZ5Lu+dgiI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWCoinTypeConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zjm0KvYfp00kkHxAqBTq/8Exov2GmVdVRHwggplRRo8=
+			0R//lwnpeKZJS9L1TtMe/0AS81JqYNp1FBItldINm+E=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWCryptoBox.h</key>
@@ -3154,7 +3154,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k7iFmDowNIz5MYOxnz2C7iNx8dF8+MXsXyIRr07hHbs=
+			oQZb/yDxXeIhsfwmKL3m8Ky98Oex6hFBN57aCBe1Yyg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWEthereumMessageSigner.h</key>
@@ -3217,7 +3217,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E6rYzn9t/0uKtPsQKp9qTtHJFgHZNVjfRsDIsVSXjYI=
+			Tx//kOX/kB+qc9n4c32ht7A5+qd+Gv6OOHJo3ZmmTcg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/TWHRP.h</key>
@@ -3483,7 +3483,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jrh5lrkSUg3pjHQxFjcVpLPKc91mwytPDfdxV++57gc=
+			VG+v3vNMJKw8xjaosa1fJfHynvIAlNLfJ9cJRCfohbo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Headers/WalletCore.h</key>
@@ -3497,63 +3497,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zZ/PzDJZrSRbPAMSVbeAp8203gHmWN6/LWW1I0+I6ys=
+			PyVAAtBBsyV5trqxfnj2gBL29WMPvF2B8m64n9qjEQc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bHTghsPIOY7gZwQP/Xdt9cr7lHBKlgQoFzR/XSNBc5c=
+			ZK889Srtr+aA/2Lrz0AT5oGclGld3cJrZxW6WkGukL8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3HgZgIWR8LaOPwOeoz4oo1MH7OXXsWwbl67qoaySX90=
+			EbBGTJzwJakVvV6I4jfm/cNsYy+s1o5SFLhp2tbzcXY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bHTghsPIOY7gZwQP/Xdt9cr7lHBKlgQoFzR/XSNBc5c=
+			ZK889Srtr+aA/2Lrz0AT5oGclGld3cJrZxW6WkGukL8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4QofnSg3UEho3xJm7TwfXs+sXeQoaIDOKZbZOaKxuJI=
+			sflwiJf+MTQdXV0JCxrVXpYmVSp+LY6Its7cQxbMqLU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FbNpF1cHxQ78fCygX3Xx7M4q6SWkApL0DI4UOdOyTJc=
+			u6KwAq/wnig3kCXai/BdDnnY7SBi2pPUfDsSzaFy+BA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/WalletCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4QofnSg3UEho3xJm7TwfXs+sXeQoaIDOKZbZOaKxuJI=
+			sflwiJf+MTQdXV0JCxrVXpYmVSp+LY6Its7cQxbMqLU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/Modules/module.modulemap</key>
@@ -3567,14 +3567,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QglBTDFM/1KDQ5qEtPmEZFgrFFnyRZbDmZ1pJPTXjIY=
+			fOoNB7O7D5RP144wCxkKC0fsqo5o40pMXOcsMI/rhlo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/WalletCore.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bhAFqPkX2CeWvuT6r6MdmS6OvZxJY+TbJP9RLBTaMtA=
+			2vojy/j1FWoia5/+rmrCATWGasU50XIhSsXWyX7dxuw=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Headers</key>
@@ -3638,7 +3638,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c31mo8xh1v6PwAdqNBe0uvErAe6bwjp2yH+JVaPQwrk=
+			ZqBTcq8Ar1b3tWlH8gadjIPe3gcG2JzjuXGORTkFJ8k=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWBase.h</key>
@@ -3736,14 +3736,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U1I0cpqZMvwUdN5M9/c2+egEd7vDo2MnRgzmivil5NY=
+			+FMHW1jDG6PHlz2NdG70PaaIP3eA+T6b9iZ5Lu+dgiI=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWCoinTypeConfiguration.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zjm0KvYfp00kkHxAqBTq/8Exov2GmVdVRHwggplRRo8=
+			0R//lwnpeKZJS9L1TtMe/0AS81JqYNp1FBItldINm+E=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWCryptoBox.h</key>
@@ -3848,7 +3848,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k7iFmDowNIz5MYOxnz2C7iNx8dF8+MXsXyIRr07hHbs=
+			oQZb/yDxXeIhsfwmKL3m8Ky98Oex6hFBN57aCBe1Yyg=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWEthereumMessageSigner.h</key>
@@ -3911,7 +3911,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E6rYzn9t/0uKtPsQKp9qTtHJFgHZNVjfRsDIsVSXjYI=
+			Tx//kOX/kB+qc9n4c32ht7A5+qd+Gv6OOHJo3ZmmTcg=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/TWHRP.h</key>
@@ -4177,7 +4177,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jrh5lrkSUg3pjHQxFjcVpLPKc91mwytPDfdxV++57gc=
+			VG+v3vNMJKw8xjaosa1fJfHynvIAlNLfJ9cJRCfohbo=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Headers/WalletCore.h</key>
@@ -4191,56 +4191,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3bOD0LYijtBKPF1tYEAmNSda0/G2d5CidzRcHHUnK38=
+			TslhjfTcuGJvGVJRtoMOPyyqCXUssBrPlCBpFXsviz8=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sO7h9kjZ0ZuvhEQ7DcDQZQvjq6+MX7pFFFC2QYtp5RA=
+			BrJ87jtjt7IEMK8o4d3QrLRhp4Y18hNQp9FdrCybEsQ=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3bOD0LYijtBKPF1tYEAmNSda0/G2d5CidzRcHHUnK38=
+			TslhjfTcuGJvGVJRtoMOPyyqCXUssBrPlCBpFXsviz8=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uZuUgQmVZMBGJFaOlHpkiYVI+q0yfzDSEesHGJHTQA8=
+			XE+1SCuk1GYklXTfMf9GpDzX99MOi16R/J8Vg7Psil0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b4lG8dRSXEzHdwks6dW6JoUVJaV1E//LnCUa+2DzpGY=
+			U0tLWZHN6/PlneRw/iakZENIuOAzrvv4oZ5044koNF8=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+OHVE2GDJsHSnM4vLeA9ZzdagNQyLHhzIryi2E0h2U8=
+			kVFQa3O6Isr1AUEsklRKfT7iLar9wOpu7Ngu7b8wpaI=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/WalletCore.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b4lG8dRSXEzHdwks6dW6JoUVJaV1E//LnCUa+2DzpGY=
+			U0tLWZHN6/PlneRw/iakZENIuOAzrvv4oZ5044koNF8=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/Modules/module.modulemap</key>
@@ -4254,21 +4254,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hHZTVXEsh0WG4S5oZC/Ro2jpokUhc7yM2gXZbVK9Ryw=
+			KPYc556B2KxH5Z26cekvBfj5JKLtcAKR/b2r0cHu738=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/WalletCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eorzRgembdYNFnUp3f3dYNUo7EDkMC5Ao0vNZ20YhA0=
+			zJOVXPes+J3w3ttVoUicqJVLb4hp7/jg9bvVFuQ0kb0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kVdwOg0e3OupW7twlqGi5NbIWEu8G65uTSpouPGThl8=
+			SE3iJhRXxWGA0nyTWjvuUIE5buALj4G5yB/j1HGKjbI=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/WalletCore.framework/Versions/Current</key>
